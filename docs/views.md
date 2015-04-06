@@ -4,23 +4,23 @@
 ![new-session]
 
 ## Feed Show (landing page)
-![feed-show]
+![question-index]
 
-## Blog Show
-![blog-show]
+## Question Show
+![question-show]
 
-## Post Show
-![post-show]
+## Answer Show
+![answer-show]
 
-## Post Form
+## Question Form
 ![post-form]
+
+## Answer Form
 
 ## Search Results
 ![search-results]
 
-[new-session]: ./wireframes/new_session.png
-[feed-show]: ./wireframes/feed_show.png
-[blog-show]: ./wireframes/blog_show.png
-[post-show]: ./wireframes/post_show.png
-[post-form]: ./wireframes/post_form.png
-[search-results]: ./wireframes/search_results.png
+[new-session]: ./wireframes/newSession.jpg
+[question-index]: ./wireframes/questionIndex.jpg
+[question-show]: ./wireframes/questionShow.jpg
+[answer-show]: ./wireframes/answerShow.jpg
