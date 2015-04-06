@@ -1,22 +1,18 @@
-# Flux-capacitr
-
-[Heroku link][heroku]
-
-[heroku]: http://flux-capacitr.herokuapp.com
+# Explora
 
 ## Minimum Viable Product
-Flux-capacitr is a clone of Tumblr built on Rails and Backbone. Users can:
+Explora is a clone of Quora built on Rails and Backbone. Users can:
 
 <!-- This is a Markdown checklist. Use it to keep track of your progress! -->
 
-- [x] Create accounts
-- [x] Create sessions (log in)
-- [x] Create blogs
-- [x] Create blog posts
-- [ ] View blogs and posts
-- [ ] Subscribe to blogs
-- [ ] View a feed of subscribed blogs
-- [ ] Tag blog posts
+- [ ] Create accounts
+- [ ] Create sessions (log in)
+- [ ] Create questions
+- [ ] Create question answers
+- [ ] View questions and their answers
+- [ ] Subscribe to users
+- [ ] View a feed of subscribed users' questions
+- [ ] Vote on questions and answers
 - [ ] Search for blogs by title
 - [ ] Search for posts by tag
 
