@@ -36,10 +36,10 @@ to phase 2.
 [Details][phase-one]
 
 ### Phase 2: Viewing Questions and Answers (~2 days)
-I will add API routes to serve questions/answer data as JSON, then add Backbone
-models and collections that fetch data from those routes. By the end of this
+I will switch to API routes to serve questions/answer data as JSON, add Backbone
+models and collections to fetch data from those routes. By the end of this
 phase, users will be able to create and answer questions and view a question and its
-associated answers, all inside a single Backbone app.
+associated answers from a single page Backbone app.
 
 [Details][phase-two]
 
