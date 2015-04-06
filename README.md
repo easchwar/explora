@@ -10,12 +10,12 @@ Explora is a clone of Quora built on Rails and Backbone. Users can:
 - [ ] Create questions
 - [ ] Create question answers
 - [ ] View questions and their answers
-- [ ] View other users
+- [ ] View other users questions
 - [ ] Subscribe to users
 - [ ] View a feed of subscribed users' questions
+- [ ] Search for Questions
 - [ ] Vote on questions and answers
-- [ ] Search for blogs by title
-- [ ] Search for posts by tag
+
 
 ## Design Docs
 * [View Wireframes][views]
@@ -35,48 +35,51 @@ to phase 2.
 
 [Details][phase-one]
 
-### Phase 2: Viewing Questions and Answers (~2 days)
-I will switch to API routes to serve questions/answer data as JSON, add Backbone
-models and collections to fetch data from those routes. By the end of this
-phase, users will be able to create and answer questions and view a question and its
-associated answers from a single page Backbone app.
+### Phase 2: Creating and Viewing Questions (~1 days)
+I will switch to API routes to serve question data as JSON, and add a Backbone
+model and collection to fetch data from those routes. By the end of this
+phase, users will be able to create and view questions from a single page
+Backbone app.
 
 [Details][phase-two]
 
-### Phase 3: Editing and Displaying Posts (~2 days)
-I plan to use third-party libraries to add functionality to the `PostForm` and
-`PostShow` views in this phase. First I'll need to add a Markdown editor to the
-`PostForm`, and make sure that the Markdown is properly escaped and formatted in
-the `PostShow` view. I also plan to integrate Filepicker for file upload so
-users can add images to blog posts.
+### Phase 3: Creating and Viewing Answers (~1-2 days)
+I will update my API routes to include answers. These answers will be viewable
+as part of a composite view for each question. By the end of this phase, users
+will be able to create answers to specific questions and view answers to
+associated questions.
 
 [Details][phase-three]
 
-### Phase 4: User Feeds (~1-2 days)
+### Phase 4: User Feeds (~2 days)
 I'll start by adding a `feed` route that uses the `current_user`'s
-`subscribed_blogs` association to serve a list of blog posts ordered
-chronologically. On the Backbone side, I'll make a `FeedShow` view whose `posts`
-collection fetches from the new route.  Ultimately, this will be the page users
+`followed_users` association to serve a list of questions ordered
+chronologically. On the Backbone side, I'll make a `FeedShow` view whose `questions`
+collection fetches from the new route. Ultimately, this will be the page users
 see after logging in.
 
 [Details][phase-four]
 
-### Phase 5: Searching for Blogs and Posts (~2 days)
-I'll need to add `search` routes to both the Blogs and Posts controllers. On the
-Backbone side, there will be a `SearchResults` composite view has `BlogsIndex`
-and `PostsIndex` subviews. These views will use plain old `blogs` and `posts`
-collections, but they will fetch from the new `search` routes.
+### Phase 5: Searching for Questions (~2 days)
+I'll need to add `search` routes to the Questions controller. On the
+Backbone side, there will be a `SearchResults` composite view has a
+`QuestionsIndex` subview. This view will be comprised of a normal `questions`
+collection, fetched from the `search` routes.
 
 [Details][phase-five]
 
+### Phase 6: Ranking Questions and Answers (~1-2 days)
+I'll add an upvote/downvote capability. Users will be able to vote on both
+questions and answers. This will eventually be the ranking system used to order
+questions on the user's feed and answers to questions.
+Will use polymorphic associations to keep the code DRY.
+
+[Details][phase-six]
+
 ### Bonus Features (TBD)
-- [ ] "Like" button and counter for posts
-- [ ] Custom blog urls
 - [ ] Pagination/infinite scroll
-- [ ] Activity history (e.g. likes, reblogs, taggings)
-- [ ] Post types (image posts, quote posts, etc)
-- [ ] Reblogging
-- [ ] Multiple sessions/session management
+- [ ] Comments on Answers
+- [ ] Tags for questions
 - [ ] User avatars
 - [ ] Typeahead search bar
 
@@ -85,4 +88,4 @@ collections, but they will fetch from the new `search` routes.
 [phase-three]: ./docs/phases/phase3.md
 [phase-four]: ./docs/phases/phase4.md
 [phase-five]: ./docs/phases/phase5.md
-
+[phase-six]: ./docs/phases/phase6.md

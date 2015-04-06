@@ -4,10 +4,10 @@
 ### Models
 
 ### Controllers
-Api::PostsController (feed)
+Api::QuestionsController (feed)
 
 ### Views
-posts/feed.json.jbuilder
+questions/feed.json.jbuilder
 
 ## Backbone
 ### Models
@@ -15,6 +15,6 @@ posts/feed.json.jbuilder
 ### Collections
 
 ### Views
-* FeedShow (composite view, contains PostsIndex subview)
+* FeedShow (composite view, contains QuestionsIndex subview)
 
 ## Gems/Libraries
