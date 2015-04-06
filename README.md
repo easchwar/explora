@@ -10,6 +10,7 @@ Explora is a clone of Quora built on Rails and Backbone. Users can:
 - [ ] Create questions
 - [ ] Create question answers
 - [ ] View questions and their answers
+- [ ] View other users
 - [ ] Subscribe to users
 - [ ] View a feed of subscribed users' questions
 - [ ] Vote on questions and answers
@@ -25,20 +26,20 @@ Explora is a clone of Quora built on Rails and Backbone. Users can:
 
 ## Implementation Timeline
 
-### Phase 1: User Authentication, Blog Creation (~1 day)
+### Phase 1: User Authentication, Question Creation (~1 day)
 I will implement user authentication in Rails based on the practices learned at
-App Academy. By the end of this phase, users will be able to create blogs using
+App Academy. By the end of this phase, users will be able to ask questions using
 a simple text form in a Rails view. The most important part of this phase will
 be pushing the app to Heroku and ensuring that everything works before moving on
 to phase 2.
 
 [Details][phase-one]
 
-### Phase 2: Viewing Blogs and Posts (~2 days)
-I will add API routes to serve blog and post data as JSON, then add Backbone
+### Phase 2: Viewing Questions and Answers (~2 days)
+I will add API routes to serve questions/answer data as JSON, then add Backbone
 models and collections that fetch data from those routes. By the end of this
-phase, users will be able to create blogs and view both blogs and posts, all
-inside a single Backbone app.
+phase, users will be able to create and answer questions and view a question and its
+associated answers, all inside a single Backbone app.
 
 [Details][phase-two]
 
