@@ -2,8 +2,10 @@
 
 ## Rails
 ### Models
+* Follow
 
 ### Controllers
+Api::FollowsController (create, destroy)
 Api::QuestionsController (feed)
 
 ### Views
