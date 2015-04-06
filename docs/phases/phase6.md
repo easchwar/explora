@@ -2,10 +2,10 @@
 
 ## Rails
 ### Models
+* Vote
 
 ### Controllers
-Api::QuestionsController ()
-Api::AnswersController ()
+Api::VotesController (create, destroy)
 
 ### Views
 

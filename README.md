@@ -71,7 +71,7 @@ collection, fetched from the `search` routes.
 ### Phase 6: Ranking Questions and Answers (~1-2 days)
 I'll add an upvote/downvote capability. Users will be able to vote on both
 questions and answers. This will eventually be the ranking system used to order
-questions on the user's feed and answers to questions.
+both questions on the user's feed and answers to questions.
 Will use polymorphic associations to keep the code DRY.
 
 [Details][phase-six]
