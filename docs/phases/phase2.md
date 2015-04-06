@@ -4,26 +4,27 @@
 ### Models
 
 ### Controllers
-Api::BlogsController (create, destroy, index, show)
-Api::PostsController (create, destroy, show, update)
+Api::QuestionsController (create, destroy, index, show)
+Api::AnswersController (create, destroy, show, update)
 
 ### Views
-* blogs/show.json.jbuilder
+* questions/show.json.jbuilder
 
 ## Backbone
 ### Models
-* Blog (parses nested `posts` association)
-* Post
+* Question (parses nested `answers` association)
+* Answer
 
 ### Collections
-* Blogs
-* Posts
+* Questions
+* Answers
 
 ### Views
-* BlogForm
-* BlogShow (composite view, contains PostsIndex subview)
-* PostsIndex (composite view, contains PostsIndexItem subviews)
-* PostsIndexItem
-* PostShow
+* QuestionsIndex
+* QuestionForm
+* QuestionShow (composite view, contains AnswersIndex subview)
+* AnswersIndex (composite view, contains AnswersIndexItem subviews)
+* AnswersIndexItem
+* AnswerShow
 
 ## Gems/Libraries
