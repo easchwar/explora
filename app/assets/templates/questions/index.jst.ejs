@@ -1,0 +1,7 @@
+<h1>Questions Index</h1>
+
+<ul class="list-group">
+  <% questions.each(function(question) { %>
+    <li class="list-group-item"><%= question.escape('body') %></li>
+  <% }) %>
+</ul>
