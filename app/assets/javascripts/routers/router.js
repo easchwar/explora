@@ -2,6 +2,7 @@ Explora.Routers.Router = Backbone.Router.extend({
 
   routes: {
     "": "questionsIndex",
+    "questions/:id": "questionShow",
   },
 
   initialize: function(options) {
@@ -12,8 +13,15 @@ Explora.Routers.Router = Backbone.Router.extend({
 
   questionsIndex: function() {
     this._questions.fetch();
-
     var view = new Explora.Views.QuestionsIndex({collection: this._questions});
+    
+    this.swapView(view);
+  },
+
+  questionShow: function(id) {
+    var question = this._questions.getOrFetch(id);
+    var view = new Explora.Views.QuestionShow({model: question});
+
     this.swapView(view);
   },
 
