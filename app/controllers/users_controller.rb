@@ -1,12 +1,6 @@
 class UsersController < ApplicationController
   before_action :require_not_signed_in, only: [:new, :create]
 
-  def index
-    # PLACEHOLDER
-
-    render :index
-  end
-
   def new
     @user = User.new()
     render :new
