@@ -1,11 +1,10 @@
-# Phase 6: Voting
+# Phase 6: Searching for Questions
 
 ## Rails
 ### Models
-* Vote
 
 ### Controllers
-Api::VotesController (create, destroy)
+Api::QuestionsController (search)
 
 ### Views
 
@@ -15,5 +14,7 @@ Api::VotesController (create, destroy)
 ### Collections
 
 ### Views
+* QuestionSearchItem
+* SearchShow (composite view, contains QuestionsIndex subviews)
 
 ## Gems/Libraries

@@ -60,21 +60,28 @@ see after logging in.
 
 [Details][phase-four]
 
-### Phase 5: Searching for Questions (~2 days)
+### Phase 5: Tagging Questions (~1 day)
+I will add a tags association to questions, so that users can tag a question with
+a specific topic. At the end of this phase, questions will be displayed with their
+associated tags. This phase is necessary for phase 6, search.
+
+[Details][phase-five]
+
+### Phase 6: Searching for Questions (~2 days)
 I'll need to add `search` routes to the Questions controller. On the
 Backbone side, there will be a `SearchResults` composite view has a
 `QuestionsIndex` subview. This view will be comprised of a normal `questions`
 collection, fetched from the `search` routes.
 
-[Details][phase-five]
+[Details][phase-six]
 
-### Phase 6: Ranking Questions and Answers (~1-2 days)
+### Phase 7-Bonus: Ranking Questions and Answers (~1-2 days)
 I'll add an upvote/downvote capability. Users will be able to vote on both
 questions and answers. This will eventually be the ranking system used to order
 both questions on the user's feed and answers to questions.
 Will use polymorphic associations to keep the code DRY.
 
-[Details][phase-six]
+[Details][phase-seven]
 
 ### Bonus Features (TBD)
 - [ ] Pagination/infinite scroll

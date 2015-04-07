@@ -1,14 +1,11 @@
-# Phase 5: Tags
+# Phase 7: Voting
 
 ## Rails
 ### Models
-* Tag
-* Tagging
+* Vote
 
 ### Controllers
-Api::TagsController (create, destroy)
-Api::TaggingsController (create, destroy)
-
+Api::VotesController (create, destroy)
 
 ### Views
 
