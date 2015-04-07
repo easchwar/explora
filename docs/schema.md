@@ -22,7 +22,6 @@ column name | data type | details
 id          | integer   | not null, primary key
 author_id   | integer   | not null, foreign key (references users)
 body        | string    | not null
-title       | string    | not null
 
 ## tags
 column name | data type | details
