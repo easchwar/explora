@@ -6,8 +6,24 @@ Explora.Views.QuestionsIndex = Backbone.View.extend({
     this._subviews = [];
   },
 
-  addSubview: function(view) {
-    this._subviews.push(view);
+  addIndexItems: function() {
+    var $questionIndex = this.$('.question-index');
+
+    this.collection.each(function(question) {
+      var view = new Explora.Views.QuestionsIndexItem({model: question});
+      $questionIndex.append(view.render().$el);
+      this._subviews.push(view);
+    }, this);
+  },
+
+  addForm: function() {
+    var view = new Explora.Views.QuestionForm({
+      collection: this.collection,
+      model: new Explora.Models.Question(),
+    });
+
+    this.$('.question-form').html(view.render().$el);
+    this._form = view;
   },
 
   removeSubviews: function() {
@@ -33,22 +49,9 @@ Explora.Views.QuestionsIndex = Backbone.View.extend({
     var content = this.template({questions: this.collection});
     this.$el.html(content);
 
-    // add index items
-    var $questionIndex = this.$('.question-index');
-    this.collection.each(function(question) {
-      var view = new Explora.Views.QuestionsIndexItem({model: question});
-      $questionIndex.append(view.render().$el);
-      this.addSubview(view);
-    }, this);
-
-    // add question form
-    var $questionForm = this.$('.question-form');
-    var formView = new Explora.Views.QuestionForm({
-      collection: this.collection,
-      model: new Explora.Models.Question(),
-    });
-    $questionForm.html(formView.render().$el);
-    this._form = formView;
+    this.addIndexItems();
+    this.addForm();
+    
     return this;
   },
 });
