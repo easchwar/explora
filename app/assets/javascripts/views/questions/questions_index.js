@@ -1,18 +1,24 @@
-Explora.Views.QuestionsIndex = Backbone.View.extend({
+Explora.Views.QuestionsIndex = Backbone.CompositeView.extend({
   template: JST['questions/index'],
 
   initialize: function() {
+    this.addAllItems();
+    this.addForm();
+
     this.listenTo(this.collection, 'sync', this.render);
-    this._subviews = [];
+    this.listenTo(this.collection, 'add', this.addIndexItem);
   },
 
-  addIndexItems: function() {
-    var $questionIndex = this.$('.question-index');
+  addIndexItem: function(question) {
+    var view = new Explora.Views.QuestionsIndexItem({model: question});
+    this.addSubview('.question-index', view);
+  },
 
+  addAllItems: function() {
     this.collection.each(function(question) {
-      var view = new Explora.Views.QuestionsIndexItem({model: question});
-      $questionIndex.append(view.render().$el);
-      this._subviews.push(view);
+      this.addIndexItem(question);
+      // var view = new Explora.Views.QuestionsIndexItem({model: question});
+      // this.addSubview('.question-index', view);
     }, this);
   },
 
@@ -21,37 +27,17 @@ Explora.Views.QuestionsIndex = Backbone.View.extend({
       collection: this.collection,
       model: new Explora.Models.Question(),
     });
-
-    this.$('.question-form').html(view.render().$el);
-    this._form = view;
-  },
-
-  removeSubviews: function() {
-    this._subviews.forEach(function(subview) {
-      subview.remove();
-    });
-    this._subviews = [];
-
-    if (this._form) {
-      this._form.remove();
-    }
-    this._form = null;
-  },
-
-  remove: function() {
-    this.removeSubviews();
-    Backbone.View.prototype.remove.call(this);
+    this.addSubview('.question-form', view);
+    // this.$('.question-form').html(view.render().$el);
+    // this._form = view;
   },
 
   render: function() {
-    this.removeSubviews();
-
+    console.log(this.subviews());
+    // console.log(this.$el.html());
     var content = this.template({questions: this.collection});
     this.$el.html(content);
-
-    this.addIndexItems();
-    this.addForm();
-    
+    this.attachSubviews();
     return this;
   },
 });

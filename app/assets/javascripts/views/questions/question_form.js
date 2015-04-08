@@ -17,9 +17,9 @@ Explora.Views.QuestionForm = Backbone.View.extend({
     event.preventDefault();
 
     var question = new Explora.Models.Question(this.$el.serializeJSON());
-
     question.save({}, {
       success: function(model) {
+        this.$('input').val('');
         this.collection.add(model);
         Backbone.history.navigate('', {trigger: true});
       }.bind(this)
