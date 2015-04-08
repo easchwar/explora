@@ -6,5 +6,6 @@ Rails.application.routes.draw do
 
   namespace :api do
     resources :questions, only: [:index, :show, :create, :update, :destroy]
+    resources :answers, only: [:show, :create, :destroy]
   end
 end
