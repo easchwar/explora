@@ -6,6 +6,7 @@ Explora.Views.QuestionsIndex = Backbone.CompositeView.extend({
 
     this.listenTo(this.collection, 'sync', this.render);
     this.listenTo(this.collection, 'add', this.addIndexItem);
+    this.listenTo(this.collection, 'remove', this.removeIndexItem);
   },
 
   addIndexItem: function(question) {
@@ -16,9 +17,15 @@ Explora.Views.QuestionsIndex = Backbone.CompositeView.extend({
   addAllItems: function() {
     this.collection.each(function(question) {
       this.addIndexItem(question);
-      // var view = new Explora.Views.QuestionsIndexItem({model: question});
-      // this.addSubview('.question-index', view);
     }, this);
+  },
+
+  removeIndexItem: function(model) {
+    this.subviews('.question-index').forEach(function(subview) {
+      if (subview.model === model) {
+        this.removeSubview('.question-index', subview);
+      }
+    }.bind(this));
   },
 
   render: function() {

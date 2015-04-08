@@ -20,6 +20,12 @@ class Api::QuestionsController < ApplicationController
     end
   end
 
+  def destroy
+    @question = Question.find(params[:id])
+    @question.try(:destroy)
+    render json: {}
+  end
+
   private
 
   def question_params
