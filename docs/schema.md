@@ -26,7 +26,7 @@ body        | string    | not null
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
-title       | string    | not null
+tag_name    | string    | not null
 
 ## taggings
 column name | data type | details
