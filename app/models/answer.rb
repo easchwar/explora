@@ -11,7 +11,8 @@
 #
 
 class Answer < ActiveRecord::Base
-  validates :author_id, :body, :question_id
+  validates :author_id, :body, :question_id, presence: true
 
   belongs_to :question
+  belongs_to :author, class_name: 'User'
 end
