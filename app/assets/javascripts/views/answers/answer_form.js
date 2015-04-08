@@ -19,7 +19,6 @@ Explora.Views.AnswerForm = Backbone.View.extend({
 
   submit: function(event) {
     event.preventDefault();
-    console.log('submitted');
 
     var answerData = this.$el.serializeJSON();
     answerData.question_id = this.question.id;
