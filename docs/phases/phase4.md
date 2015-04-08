@@ -1,15 +1,16 @@
-# Phase 4: User Feeds
+# Phase 4: Tags
 
 ## Rails
 ### Models
-* Follow
+* Tag
+* Tagging
 
 ### Controllers
-Api::FollowsController (create, destroy)
-Api::QuestionsController (feed)
+Api::TagsController (create, destroy)
+Api::TaggingsController (create, destroy)
+
 
 ### Views
-questions/feed.json.jbuilder
 
 ## Backbone
 ### Models
@@ -17,6 +18,5 @@ questions/feed.json.jbuilder
 ### Collections
 
 ### Views
-* FeedShow (composite view, contains QuestionsIndex subview)
 
 ## Gems/Libraries

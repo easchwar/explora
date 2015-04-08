@@ -51,19 +51,19 @@ associated questions.
 
 [Details][phase-three]
 
-### Phase 4: User Feeds (~2 days)
+### Phase 4: Tagging Questions (~1 day)
+I will add a tags association to questions, so that users can tag a question with
+a specific topic. At the end of this phase, questions will be displayed with their
+associated tags. This phase is necessary for phase 6, search.
+
+[Details][phase-four]
+
+### Phase 5: User Feeds (~2 days)
 I'll start by adding a `feed` route that uses the `current_user`'s
 `followed_users` association to serve a list of questions ordered
 chronologically. On the Backbone side, I'll make a `FeedShow` view whose `questions`
 collection fetches from the new route. Ultimately, this will be the page users
 see after logging in.
-
-[Details][phase-four]
-
-### Phase 5: Tagging Questions (~1 day)
-I will add a tags association to questions, so that users can tag a question with
-a specific topic. At the end of this phase, questions will be displayed with their
-associated tags. This phase is necessary for phase 6, search.
 
 [Details][phase-five]
 
