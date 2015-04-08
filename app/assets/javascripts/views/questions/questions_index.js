@@ -5,7 +5,6 @@ Explora.Views.QuestionsIndex = Backbone.CompositeView.extend({
     this.addAllItems();
 
     this.listenTo(this.collection, 'sync', this.render);
-    this.listenTo(this.collection, 'sort', this.render);
     this.listenTo(this.collection, 'add', this.addIndexItem);
     this.listenTo(this.collection, 'remove', this.removeIndexItem);
   },
