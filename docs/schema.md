@@ -7,7 +7,6 @@ id          | integer   | not null, primary key
 author_id   | integer   | not null, foreign key (references users)
 body        | string    | not null
 question_id | integer   | not null, foreign key (references questions)
-title       | string    | not null
 
 ## followings
 column name | data type | details
