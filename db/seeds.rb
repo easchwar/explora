@@ -1,5 +1,12 @@
 User.destroy_all
 Question.destroy_all
+Tag.destroy_all
+
+Tag.create!(tag_name: 'food')
+Tag.create!(tag_name: 'sports')
+Tag.create!(tag_name: 'travel')
+Tag.create!(tag_name: 'animals')
+
 
 e = User.create!(username: 'eric', password: 'ericeric')
 u = User.create!(username: 'user1', password: 'password')
