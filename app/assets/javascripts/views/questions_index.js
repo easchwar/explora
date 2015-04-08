@@ -15,6 +15,11 @@ Explora.Views.QuestionsIndex = Backbone.View.extend({
       subview.remove();
     });
     this._subviews = [];
+
+    if (this._form) {
+      this._form.remove();
+    }
+    this._form = null;
   },
 
   remove: function() {
@@ -28,13 +33,22 @@ Explora.Views.QuestionsIndex = Backbone.View.extend({
     var content = this.template({questions: this.collection});
     this.$el.html(content);
 
-    var $questionIndex = $('.question-index');
+    // add index items
+    var $questionIndex = this.$('.question-index');
     this.collection.each(function(question) {
       var view = new Explora.Views.QuestionsIndexItem({model: question});
       $questionIndex.append(view.render().$el);
       this.addSubview(view);
     }, this);
 
+    // add question form
+    var $questionForm = this.$('.question-form');
+    var formView = new Explora.Views.QuestionForm({
+      collection: this.collection,
+      model: new Explora.Models.Question(),
+    });
+    $questionForm.html(formView.render().$el);
+    this._form = formView;
     return this;
   },
 });
