@@ -2,14 +2,19 @@ Explora.Views.QuestionShow = Backbone.CompositeView.extend({
   template: JST['questions/show'],
 
   initialize: function() {
-    // this.addForm();
+    this.addForm();
     this.addAnswersIndex();
 
     this.listenTo(this.model, 'sync', this.render);
   },
 
   addForm: function() {
+    var view = new Explora.Views.AnswerForm({
+      collection: this.model.answers(),
+      question: this.model
+    });
 
+    this.addSubview('.answer-form', view);
   },
 
   addAnswersIndex: function() {
