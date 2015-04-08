@@ -11,6 +11,12 @@ class Api::AnswersController < ApplicationController
     end
   end
 
+  def destroy
+    @answer = Answer.find(params[:id])
+    @answer.try(:destroy)
+    render json: {}
+  end
+
   private
 
   def answer_params
