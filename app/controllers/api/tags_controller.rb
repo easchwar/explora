@@ -3,7 +3,7 @@ class Api::TagsController < ApplicationController
     @tags = Tag.all
     render json: @tags
   end
-  
+
   def create
     @tag = Tag.new(tag_params)
 
