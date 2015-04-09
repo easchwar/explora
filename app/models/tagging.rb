@@ -10,7 +10,7 @@
 #
 
 class Tagging < ActiveRecord::Base
-  validates :question_id, :tag_id, presence: true
+  validates :question, :tag, presence: true
 
   belongs_to :tag
   belongs_to :question
