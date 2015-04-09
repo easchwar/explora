@@ -1,6 +1,8 @@
 <h2>Question Page</h2>
 <p>
   <%= question.escape('body') %>
+  <br>
+  tags: <%= question.tags().pluck('tag_name').join(',') %>
 </p>
 
 <div class="answer-form">
