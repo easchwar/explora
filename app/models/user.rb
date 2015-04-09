@@ -19,9 +19,14 @@ class User < ActiveRecord::Base
   has_many :questions, foreign_key: :author_id, dependent: :destroy
   has_many :answers, foreign_key: :author_id, dependent: :destroy
 
-
   has_many :subscriptions
   has_many :received_subscriptions, class_name: 'Subscription', as: :subscribable
+
+  has_many :subscribers,
+  {
+    through: :received_subscriptions,
+    source: :user
+  }
 
   has_many :subscribed_tags,
   {

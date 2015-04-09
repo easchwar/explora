@@ -15,4 +15,10 @@ class Tag < ActiveRecord::Base
   has_many :tagged_questions, through: :taggings, source: :question
 
   has_many :received_subscriptions, class_name: 'Subscription', as: :subscribable
+
+  has_many :subscribers,
+  {
+    through: :received_subscriptions,
+    source: :user
+  }
 end
