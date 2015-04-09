@@ -22,6 +22,14 @@ id          | integer   | not null, primary key
 author_id   | integer   | not null, foreign key (references users)
 body        | string    | not null
 
+## subscriptions
+column name        | data type | details
+-------------------|-----------|-----------------------
+id                 | integer   | not null, primary key
+user_id            | integer   | not null, foreign key (references users)
+subscribable_id    | integer   | not null, foreign key (polymorphic)
+subscribable_type  | string    | not null
+
 ## tags
 column name | data type | details
 ------------|-----------|-----------------------

@@ -19,6 +19,25 @@ class User < ActiveRecord::Base
   has_many :questions, foreign_key: :author_id, dependent: :destroy
   has_many :answers, foreign_key: :author_id, dependent: :destroy
 
+
+  has_many :subscriptions
+  has_many :received_subscriptions, class_name: 'Subscription', as: :subscribable
+
+  has_many :subscribed_tags,
+  {
+    through: :subscriptions,
+    source: :subscribable,
+    source_type: 'Tag'
+  }
+
+  has_many :subscribed_users,
+  {
+    through: :subscriptions,
+    source: :subscribable,
+    source_type: 'User'
+  }
+
+
   after_initialize :ensure_session_token
 
   def self.generate_session_token

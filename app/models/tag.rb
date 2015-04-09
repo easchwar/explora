@@ -13,4 +13,6 @@ class Tag < ActiveRecord::Base
 
   has_many :taggings, dependent: :destroy
   has_many :tagged_questions, through: :taggings, source: :question
+
+  has_many :received_subscriptions, class_name: 'Subscription', as: :subscribable
 end
