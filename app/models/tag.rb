@@ -10,4 +10,7 @@
 
 class Tag < ActiveRecord::Base
   validates :tag_name, presence: true
+
+  has_many :taggings
+  has_many :tagged_questions, through: :taggings, source: :question
 end
