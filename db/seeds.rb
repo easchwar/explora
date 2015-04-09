@@ -1,11 +1,12 @@
 User.destroy_all
 Question.destroy_all
 Tag.destroy_all
+Tagging.destroy_all
 
-Tag.create!(tag_name: 'food')
-Tag.create!(tag_name: 'sports')
-Tag.create!(tag_name: 'travel')
-Tag.create!(tag_name: 'animals')
+f = Tag.create!(tag_name: 'food')
+s = Tag.create!(tag_name: 'sports')
+t = Tag.create!(tag_name: 'travel')
+a = Tag.create!(tag_name: 'animals')
 
 
 e = User.create!(username: 'eric', password: 'ericeric')
@@ -23,3 +24,12 @@ u.questions.create!(body: 'user1 question2')
 q1.answers.create!(body: 'me', author_id: u.id)
 q1.answers.create!(body: 'and you', author_id: u2.id)
 q2.answers.create!(body: 'nothing', author_id: u.id)
+
+Tagging.create!(tag_id: f.id, question_id: q1.id)
+Tagging.create!(tag_id: s.id, question_id: q1.id)
+Tagging.create!(tag_id: t.id, question_id: q1.id)
+Tagging.create!(tag_id: a.id, question_id: q1.id)
+Tagging.create!(tag_id: a.id, question_id: q2.id)
+Tagging.create!(tag_id: t.id, question_id: q2.id)
+Tagging.create!(tag_id: t.id, question_id: q3.id)
+Tagging.create!(tag_id: f.id, question_id: q3.id)

@@ -2,7 +2,7 @@
 <p>
   <%= question.escape('body') %>
   <br>
-  tags: <%= question.tags().pluck('tag_name').join(',') %>
+  tags: <%= question.tags().pluck('tag_name').join(', ') %>
 </p>
 
 <div class="answer-form">
