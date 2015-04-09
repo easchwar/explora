@@ -10,9 +10,9 @@ Explora is a clone of Quora built on Rails and Backbone. Users can:
 - [x] Create questions
 - [x] Create question answers
 - [x] View questions and their answers
-- [ ] View other users questions
-- [ ] Subscribe to users
-- [ ] View a feed of subscribed users' questions
+- [x] Create tags for questions
+- [ ] Subscribe to users/tags
+- [ ] View a feed of subscribed questions
 - [ ] Search for Questions
 - [ ] Vote on questions and answers
 
