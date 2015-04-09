@@ -20,6 +20,7 @@ Subscription.create!(user_id: e.id, subscribable_id: f.id, subscribable_type: 'T
 Subscription.create!(user_id: e.id, subscribable_id: s.id, subscribable_type: 'Tag')
 Subscription.create!(user_id: e.id, subscribable_id: a.id, subscribable_type: 'Tag')
 Subscription.create!(user_id: e.id, subscribable_id: u.id, subscribable_type: 'User')
+Subscription.create!(user_id: u.id, subscribable_id: e.id, subscribable_type: 'User')
 
 # Questions
 q1 = e.questions.create!(body: 'who?', tag_ids: [f.id, a.id, t.id])
