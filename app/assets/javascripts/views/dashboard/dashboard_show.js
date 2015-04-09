@@ -19,6 +19,7 @@ Explora.Views.DashboardShow = Backbone.CompositeView.extend({
   addForm: function() {
     var view = new Explora.Views.QuestionForm({
       collection: this.questions,
+      tags: this.tags,
       model: new Explora.Models.Question(),
     });
     this.addSubview('.question-form', view);

@@ -1,7 +1,10 @@
 class Api::QuestionsController < ApplicationController
+  wrap_parameters :question, include: [:tag_ids, :body]
   def index
-    @questions = Question.all.order(created_at: :asc)
-    # @questions.to_a.reverse!
+    @questions = Question.all.order(created_at: :desc) #add a limit() for pagination
+
+    # allows correct ordering once paginated
+    @questions.to_a.reverse!
     render json: @questions
   end
 
@@ -13,7 +16,6 @@ class Api::QuestionsController < ApplicationController
 
   def create
     @question = current_user.questions.new(question_params)
-
     if @question.save
       render json: @question
     else
@@ -30,6 +32,6 @@ class Api::QuestionsController < ApplicationController
   private
 
   def question_params
-    params.require(:question).permit(:body)
+    params.require(:question).permit(:body, :tag_ids)
   end
 end
