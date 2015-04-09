@@ -11,7 +11,7 @@ Explora.Views.QuestionsIndex = Backbone.CompositeView.extend({
 
   addIndexItem: function(model) {
     var view = new Explora.Views.QuestionsIndexItem({model: model});
-    this.addSubview('.questions-index', view);
+    this.addSubview('.questions-index', view, {prepend: true});
   },
 
   addAllItems: function() {

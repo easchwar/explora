@@ -1,6 +1,7 @@
 class Api::QuestionsController < ApplicationController
   def index
-    @questions = Question.all.order(created_at: :desc)
+    @questions = Question.all.order(created_at: :asc)
+    # @questions.to_a.reverse!
     render json: @questions
   end
 

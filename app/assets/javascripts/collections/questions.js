@@ -4,7 +4,7 @@ Explora.Collections.Questions = Backbone.Collection.extend({
 
   comparator: function(model) {
     var date = new Date(model.get('created_at'));
-    return ( 0 - date.valueOf());
+    return date.valueOf();
   },
 
   getOrFetch: function(id) {

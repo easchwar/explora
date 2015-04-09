@@ -3,7 +3,7 @@ Explora.Collections.Answers = Backbone.Collection.extend({
 
   comparator: function(model) {
     var date = new Date(model.get('created_at'));
-    return ( 0 - date.valueOf());
+    return date.valueOf();
   },
 
   model: Explora.Models.Answer,
