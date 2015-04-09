@@ -35,10 +35,12 @@ class User < ActiveRecord::Base
     source: :subscribable,
     source_type: 'Tag'
   }
-  has_many :subscribed_tag_questions,
+
+  has_many :subscribed_tag_questions, -> { uniq },
   {
     through: :subscribed_tags,
-    source: :tagged_questions
+    source: :tagged_questions,
+    class_name: 'Question'
   }
 
   has_many :subscribed_users,
@@ -48,10 +50,10 @@ class User < ActiveRecord::Base
     source_type: 'User'
   }
 
-  has_many :subscribed_user_questions,
+  has_many :subscribed_user_questions, -> { uniq },
   {
     through: :subscribed_users,
-    source: :questions
+    source: :questions,
   }
 
   after_initialize :ensure_session_token
