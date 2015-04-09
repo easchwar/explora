@@ -5,3 +5,9 @@ json.answers do
     json.partial! 'api/answers/show', answer: answer
   end
 end
+
+json.tags do
+  json.array!(@question.tags) do |tag|
+    json.partial! 'api/tags/show', tag: tag
+  end
+end
