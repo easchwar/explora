@@ -9,12 +9,17 @@ Explora.Routers.Router = Backbone.Router.extend({
     this.$rootEl = options.$rootEl;
 
     this._questions = new Explora.Collections.Questions();
+    this._tags = new Explora.Collections.Tags();
   },
 
   dashboardShow: function() {
     this._questions.fetch();
+    this._tags.fetch();
 
-    var view = new Explora.Views.DashboardShow({collection: this._questions});
+    var view = new Explora.Views.DashboardShow({
+      questions: this._questions,
+      tags: this._tags,
+      });
     this.swapView(view);
   },
 

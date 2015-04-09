@@ -3,13 +3,17 @@ Explora.Views.DashboardShow = Backbone.CompositeView.extend({
 
   className: 'row',
 
-  initialize: function() {
+  initialize: function(options) {
+    this.tags = options.tags;
+    this.questions = options.questions;
+
     // set up subviews
     this.addForm();
     this.addQuestionsIndex();
     this.addTagsIndex();
 
-    this.listenTo(this.collection, 'sync', this.render);
+    this.listenTo(this.questions, 'sync', this.render);
+    this.listenTo(this.tags, 'change:tag_name add remove', this.render);
   },
 
   addForm: function() {
@@ -21,12 +25,13 @@ Explora.Views.DashboardShow = Backbone.CompositeView.extend({
   },
 
   addQuestionsIndex: function() {
-    var view = new Explora.Views.QuestionsIndex({collection: this.collection});
+    var view = new Explora.Views.QuestionsIndex({collection: this.questions});
     this.addSubview('.questions-index', view);
   },
 
   addTagsIndex: function() {
-
+    var view = new Explora.Views.TagsIndex({collection: this.tags});
+    this.addSubview('.tags-index', view);
   },
 
   render: function() {
