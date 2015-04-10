@@ -14,6 +14,7 @@ Explora.Views.Navbar = Backbone.View.extend({
   logRoute: function() {
     console.log('Routed');
     console.log(arguments);
+    this.$('input').val('');
   },
 
   render: function() {
