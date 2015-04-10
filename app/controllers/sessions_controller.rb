@@ -25,6 +25,6 @@ class SessionsController < ApplicationController
       @user.reset_session_token!
     end
     session[:session_token] = nil
-    redirect_to new_session_url
+    render json: {message: "session terminated"}
   end
 end

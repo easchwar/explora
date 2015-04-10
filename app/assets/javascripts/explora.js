@@ -6,7 +6,12 @@ window.Explora = {
   initialize: function() {
     // alert('Hello from Backbone!');
     var $rootEl = $('#main');
-    new Explora.Routers.Router({$rootEl: $rootEl});
+    this.router = new Explora.Routers.Router({$rootEl: $rootEl});
+
+    var $navbar = $('#navbar');
+    var navView = new Explora.Views.Navbar({router: this.router});
+    $navbar.html(navView.render().$el);
+
     Backbone.history.start();
   }
 };
