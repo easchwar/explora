@@ -10,7 +10,7 @@ class Api::QuestionsController < ApplicationController
 
     @questions.sort! { |a,b| a.created_at <=> b.created_at }
 
-    render json: @questions
+    render :feed
   end
 
   def tagged

@@ -1,4 +1,4 @@
-Explora.Views.QuestionsIndexItem = Backbone.View.extend({
+Explora.Views.QuestionsIndexItem = Backbone.CompositeView.extend({
   template: JST['questions/index_item'],
 
   tagName: 'li',
@@ -9,12 +9,26 @@ Explora.Views.QuestionsIndexItem = Backbone.View.extend({
   },
 
   initialize: function() {
+    if (this.model.topAnswer().get('created_at')) {
+      this.addAnswerIndexItem();
+    }
+
     this.listenTo(this.model, 'sync', this.render);
+  },
+
+  addAnswerIndexItem: function() {
+    var view = new Explora.Views.AnswersIndexItem({
+      model: this.model.topAnswer(),
+      tagName: 'p',
+      className: 'question-item-top-answer',
+    });
+    this.addSubview('.question-index-item-answer', view);
   },
 
   render: function() {
     var content = this.template({question: this.model});
     this.$el.html(content);
+    this.attachSubviews();
     return this;
   },
 
