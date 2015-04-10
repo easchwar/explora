@@ -2,9 +2,9 @@ class Api::QuestionsController < ApplicationController
   wrap_parameters :question, include: [:tag_ids, :body]
 
   def feed
-    subbed_user_questions = current_user.subscribed_user_questions.order(created_at: :asc)
+    subbed_user_questions = current_user.subscribed_user_questions
     subbed_tag_questions = current_user.subscribed_tag_questions.
-      where.not(author_id: current_user.id).order(created_at: :asc)
+      where.not(author_id: current_user.id)
 
     @questions = (subbed_user_questions.to_a + subbed_tag_questions.to_a).uniq
 
@@ -13,11 +13,19 @@ class Api::QuestionsController < ApplicationController
     render json: @questions
   end
 
-  def index
-    @questions = current_user.questions.order(created_at: :desc) #add a limit() for pagination
-
-    # allows correct ordering once paginated
+  def tagged
+    @tag = Tag.find(params[:id])
+    @questions = @tag.tagged_questions.order(created_at: :asc)
     @questions.to_a.reverse!
+
+    render json: @questions
+  end
+
+  def index
+    @questions = current_user.questions.order(created_at: :asc) #add a limit() for pagination
+    # allows correct ordering once paginated
+    # @questions.to_a.reverse!
+
     render json: @questions
   end
 
