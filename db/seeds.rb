@@ -12,8 +12,10 @@ a = Tag.create!(tag_name: 'animals')
 
 # Users
 e = User.create!(username: 'eric', password: 'ericeric')
+g = User.create!(username: 'Guest', password: 'password')
 u = User.create!(username: 'user1', password: 'password')
 u2 = User.create!(username: 'user2', password: 'password')
+
 
 # Subscriptions
 Subscription.create!(user_id: e.id, subscribable_id: f.id, subscribable_type: 'Tag')
@@ -21,6 +23,9 @@ Subscription.create!(user_id: e.id, subscribable_id: s.id, subscribable_type: 'T
 Subscription.create!(user_id: e.id, subscribable_id: a.id, subscribable_type: 'Tag')
 Subscription.create!(user_id: e.id, subscribable_id: u.id, subscribable_type: 'User')
 Subscription.create!(user_id: u.id, subscribable_id: e.id, subscribable_type: 'User')
+Subscription.create!(user_id: g.id, subscribable_id: e.id, subscribable_type: 'User')
+Subscription.create!(user_id: g.id, subscribable_id: f.id, subscribable_type: 'Tag')
+Subscription.create!(user_id: g.id, subscribable_id: s.id, subscribable_type: 'Tag')
 
 # Questions
 q1 = e.questions.create!(body: 'who?', tag_ids: [f.id, a.id, t.id])
