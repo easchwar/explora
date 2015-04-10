@@ -12,7 +12,7 @@ a = Tag.create!(tag_name: 'animals')
 
 # Users
 e = User.create!(username: 'eric', password: 'ericeric')
-g = User.create!(username: 'Guest', password: 'password')
+g = User.create!(username: 'ExploraNinja', password: 'exploraninja')
 u = User.create!(username: 'user1', password: 'password')
 u2 = User.create!(username: 'user2', password: 'password')
 
@@ -24,16 +24,21 @@ Subscription.create!(user_id: e.id, subscribable_id: a.id, subscribable_type: 'T
 Subscription.create!(user_id: e.id, subscribable_id: u.id, subscribable_type: 'User')
 Subscription.create!(user_id: u.id, subscribable_id: e.id, subscribable_type: 'User')
 Subscription.create!(user_id: g.id, subscribable_id: e.id, subscribable_type: 'User')
+Subscription.create!(user_id: g.id, subscribable_id: u.id, subscribable_type: 'User')
 Subscription.create!(user_id: g.id, subscribable_id: f.id, subscribable_type: 'Tag')
 Subscription.create!(user_id: g.id, subscribable_id: s.id, subscribable_type: 'Tag')
 
 # Questions
-q1 = e.questions.create!(body: 'who?', tag_ids: [f.id, a.id, t.id])
-q2 = e.questions.create!(body: 'what?', tag_ids: [a.id, s.id, t.id])
-q3 = e.questions.create!(body: 'where?', tag_ids: [a.id])
-
 u.questions.create!(body: 'user1 question1', tag_ids: [f.id, s.id, a.id])
 u.questions.create!(body: 'user1 question2', tag_ids: [f.id, s.id, t.id])
+
+q1 = e.questions.create!(body: "Why can't everybody know what's good?",
+                         tag_ids: [f.id, a.id, t.id])
+q2 = e.questions.create!(body: "Who knows the best place to buy Indiana Jones hats?",
+                         tag_ids: [a.id, s.id, t.id])
+q3 = e.questions.create!(body: "This entry is intentionally extremely long to see how the css handles really long questions in the question index item view on the dashboard_show. It should wrap nicely and not overflow into any adjacent entries",
+                         tag_ids: [a.id])
+
 u2.questions.create!(body: 'user2 q1 Not in feed', tag_ids: [t.id])
 u2.questions.create!(body: 'user2 q2 Not in feed', tag_ids: [t.id])
 u2.questions.create!(body: 'user2 q3 in feed because of tag', tag_ids: [f.id, s.id, t.id])
