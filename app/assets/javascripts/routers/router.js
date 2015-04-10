@@ -14,8 +14,8 @@ Explora.Routers.Router = Backbone.Router.extend({
     this._questions.url = '/api/questions/feed';
     this._tags = new Explora.Collections.Tags();
 
-    var sidebar = new Explora.Views.DefaultSidebar({tags: this._tags});
-    this.swapSidebar(sidebar);
+    this._defaultSidebar = new Explora.Views.DefaultSidebar({tags: this._tags});
+    this.swapSidebar(this._defaultSidebar);
   },
 
   dashboardShow: function() {
@@ -39,6 +39,10 @@ Explora.Routers.Router = Backbone.Router.extend({
   },
 
   swapSidebar: function(view) {
+    if (this._currentSidebar === view) {
+      return;
+    }
+
     if (this._currentSidebar) {
       this._currentSidebar.remove();
     }
