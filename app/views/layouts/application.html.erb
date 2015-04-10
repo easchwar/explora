@@ -8,7 +8,10 @@
 
   <% if current_user %>
     <script charset="utf-8">
-      window.CUR_UN = "<%= current_user.username %>"
+      window.CURRENT_USER = {
+        id: <%= current_user.id %>,
+        username: "<%= current_user.username %>",
+      };
     </script>
   <% end %>
 </head>
