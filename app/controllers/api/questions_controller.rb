@@ -22,10 +22,16 @@ class Api::QuestionsController < ApplicationController
   end
 
   def index
-    @questions = current_user.questions.order(created_at: :asc) #add a limit() for pagination
-    # allows correct ordering once paginated
-    # @questions.to_a.reverse!
-
+    if params[:author_id]
+      user = User.find(params[:author_id])
+      @questions = user.questions.order(created_at: :asc)
+    elsif params[:tag_id]
+      tag = Tag.find(params[:tag_id])
+      @questions = tag.tagged_questions.order(created_at: :asc)
+    else
+      @questions = Question.all
+    end
+    
     render json: @questions
   end
 
