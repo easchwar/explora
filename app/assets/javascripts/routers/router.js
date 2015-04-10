@@ -2,15 +2,20 @@ Explora.Routers.Router = Backbone.Router.extend({
 
   routes: {
     "": "dashboardShow",
+    "questions/tags/:id": "taggedQuestionIndex",
     "questions/:id": "questionShow",
   },
 
   initialize: function(options) {
+    this.$sidebar = options.$sidebar;
     this.$rootEl = options.$rootEl;
 
     this._questions = new Explora.Collections.Questions();
     this._questions.url = '/api/questions/feed';
     this._tags = new Explora.Collections.Tags();
+
+    var sidebar = new Explora.Views.DefaultSidebar({tags: this._tags});
+    this.swapSidebar(sidebar);
   },
 
   dashboardShow: function() {
@@ -33,12 +38,20 @@ Explora.Routers.Router = Backbone.Router.extend({
     this.swapView(view);
   },
 
+  swapSidebar: function(view) {
+    if (this._currentSidebar) {
+      this._currentSidebar.remove();
+    }
+    this._currentSidebar = view;
+    this.$sidebar.html(view.render().$el);
+  },
+
   swapView: function(view) {
     if (this._currentView) {
       this._currentView.remove();
     }
-      this._currentView = view;
-      this.$rootEl.html(view.render().$el);
+    this._currentView = view;
+    this.$rootEl.html(view.render().$el);
   },
 
 });
