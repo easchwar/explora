@@ -1,2 +1,14 @@
-<a href="#/questions/<%= question.id %>"><%= question.escape('body') %></a>
-<button class="item-delete">X</button>
+<div>
+  <a href="#/questions/<%= question.id %>">
+    <p class="question-index-item-question">
+      <%= question.escape('body') %>
+    </p>
+  </a>
+
+  <div class="question-index-item-answer">
+    The top answer text gets put here
+  </div>
+  <br>
+  <button class="btn-index-item-answer btn btn-primary btn-xs">Answer</button>
+  <button class="item-delete btn btn-default btn-xs">X</button>
+</div>

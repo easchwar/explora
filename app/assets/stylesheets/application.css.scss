@@ -16,6 +16,9 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+#main {
+  padding-top: 60px;
+}
 
 .item-delete {
   float: right;
@@ -29,6 +32,7 @@ textarea {
 .navbar-custom {
   width: 90%;
   margin: auto;
+  box-shadow: 0px 1px 2px #ddd;
 }
 
 .sign-in {
@@ -37,4 +41,9 @@ textarea {
   border-radius: 4px;
   box-shadow: 2px 2px 10px #eee;
   padding: 10px;
+}
+
+.question-index-item-question {
+  font-size: 150%;
+  color: darkblue;
 }
