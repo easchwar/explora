@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resource :session, only: [:new, :create, :destroy]
 
   namespace :api, defaults: { format: :json } do
+    get 'questions/feed', to: 'questions#feed'
     resources :questions, only: [:index, :show, :create, :update, :destroy]
     resources :answers, only: [:show, :create, :destroy]
     resources :tags, only: [:index, :create]

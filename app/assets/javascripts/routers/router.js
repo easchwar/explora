@@ -9,6 +9,7 @@ Explora.Routers.Router = Backbone.Router.extend({
     this.$rootEl = options.$rootEl;
 
     this._questions = new Explora.Collections.Questions();
+    this._questions.url = '/api/questions/feed';
     this._tags = new Explora.Collections.Tags();
   },
 
@@ -24,7 +25,9 @@ Explora.Routers.Router = Backbone.Router.extend({
   },
 
   questionShow: function(id) {
-    var question = this._questions.getOrFetch(id);
+    // var question = this._questions.getOrFetch(id);
+    var question = new Explora.Models.Question({id: id});
+    question.fetch();
     var view = new Explora.Views.QuestionShow({model: question});
 
     this.swapView(view);
