@@ -11,7 +11,6 @@ Explora.Routers.Router = Backbone.Router.extend({
     this.$rootEl = options.$rootEl;
 
     this._questions = new Explora.Collections.Questions();
-    this._questions.url = '/api/questions/feed';
     this._tags = new Explora.Collections.Tags();
 
     this._defaultSidebar = new Explora.Views.DefaultSidebar({tags: this._tags});
@@ -19,20 +18,20 @@ Explora.Routers.Router = Backbone.Router.extend({
   },
 
   feedShow: function() {
-    this._questions.fetch();
+    var feedQuestions = new Explora.Collections.Questions();
+    feedQuestions.url = '/api/questions/feed';
+    feedQuestions.fetch();
     this._tags.fetch();
 
     var view = new Explora.Views.FeedShow({
-      questions: this._questions,
+      questions: feedQuestions,
       tags: this._tags,
       });
     this.swapView(view);
   },
 
   questionShow: function(id) {
-    // var question = this._questions.getOrFetch(id);
-    var question = new Explora.Models.Question({id: id});
-    question.fetch();
+    var question = this._questions.getOrFetch(id);
     var view = new Explora.Views.QuestionShow({model: question});
 
     this.swapView(view);
