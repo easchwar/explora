@@ -14,6 +14,7 @@
 - Better seed data
 - modal for question form
 - make useful navbar
+- change url for tags (use tag_name instead of id)
 
 ## Interesting Problems:
 ### Making a feed action for questions controller

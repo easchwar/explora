@@ -37,6 +37,23 @@ Explora.Routers.Router = Backbone.Router.extend({
     this.swapView(view);
   },
 
+  taggedQuestionIndex: function(id) {
+    var tag = this._tags.getOrFetch(id);
+
+    var tagQuestions = new Explora.Collections.Questions();
+    tagQuestions.fetch({
+      data: {
+        tag_id: id,
+      },
+    });
+
+    var view = new Explora.Views.FeedShow({
+      questions: tagQuestions,
+      tags: this._tags,
+    });
+    this.swapView(view);
+  },
+
   swapSidebar: function(view) {
     if (this._currentSidebar === view) {
       return;

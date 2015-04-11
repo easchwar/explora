@@ -5,8 +5,13 @@ class Api::TagsController < ApplicationController
     else
       @tags = Tag.all
     end
-    
+
     render json: @tags
+  end
+
+  def show
+    @tag = Tag.find(params[:id])
+    render json: @tag
   end
 
   def create
