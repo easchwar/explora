@@ -1,6 +1,11 @@
 class Api::TagsController < ApplicationController
   def index
-    @tags = Tag.all
+    if params[:user_id]
+      @tags = User.find(params[:user_id]).subscribed_tags
+    else
+      @tags = Tag.all
+    end
+    
     render json: @tags
   end
 
