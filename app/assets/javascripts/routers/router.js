@@ -1,7 +1,7 @@
 Explora.Routers.Router = Backbone.Router.extend({
 
   routes: {
-    "": "dashboardShow",
+    "": "feedShow",
     "questions/tags/:id": "taggedQuestionIndex",
     "questions/:id": "questionShow",
   },
@@ -18,11 +18,11 @@ Explora.Routers.Router = Backbone.Router.extend({
     this.swapSidebar(this._defaultSidebar);
   },
 
-  dashboardShow: function() {
+  feedShow: function() {
     this._questions.fetch();
     this._tags.fetch();
 
-    var view = new Explora.Views.DashboardShow({
+    var view = new Explora.Views.FeedShow({
       questions: this._questions,
       tags: this._tags,
       });

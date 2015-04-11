@@ -1,5 +1,5 @@
-Explora.Views.DashboardShow = Backbone.CompositeView.extend({
-  template: JST['dashboard/show'],
+Explora.Views.FeedShow = Backbone.CompositeView.extend({
+  template: JST['feed/show'],
 
   className: 'row',
 
@@ -8,7 +8,6 @@ Explora.Views.DashboardShow = Backbone.CompositeView.extend({
     this.questions = options.questions;
 
     // set up subviews
-
     this.addForm();
     this.addQuestionsIndex();
 
