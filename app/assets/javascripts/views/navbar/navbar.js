@@ -9,12 +9,25 @@ Explora.Views.Navbar = Backbone.View.extend({
   initialize: function(options) {
     this.router = options.router;
     this.listenTo(this.router, 'route', this.logRoute);
+
+    // $('.typeahead').typeahead({
+    //   minLength: 2,
+    //   highlight: true,
+    // },
+    // {
+    //   name: 'my-dataset',
+    //   source: this.typeaheadSource
+    // });
   },
 
   logRoute: function() {
     console.log('Routed');
     console.log(arguments);
     this.$('input').val('');
+  },
+
+  typaheadSource: function(query, process) {
+
   },
 
   render: function() {
@@ -24,7 +37,7 @@ Explora.Views.Navbar = Backbone.View.extend({
   },
 
   search: function(event) {
-    event.preventDefault();
+    // event.preventDefault();
     var $form = $(event.currentTarget);
     console.log($form);
     console.log($form.serializeJSON());
