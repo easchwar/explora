@@ -6,6 +6,7 @@ Explora.Views.QuestionShow = Backbone.CompositeView.extend({
   initialize: function() {
     this.addForm();
     this.addAnswersIndex();
+    this.addRelatedQuestions();
 
     this.listenTo(this.model, 'sync', this.render);
   },
@@ -22,6 +23,14 @@ Explora.Views.QuestionShow = Backbone.CompositeView.extend({
   addAnswersIndex: function() {
     var view = new Explora.Views.AnswersIndex({collection: this.model.answers()});
     this.addSubview('.answers-index', view);
+  },
+
+  addRelatedQuestions: function() {
+    var view = new Explora.Views.QuestionsIndex({
+      collection: this.model.relatedQuestions(),
+      simple: true,
+    });
+    this.addSubview('.related-questions', view);
   },
 
   render: function() {

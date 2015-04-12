@@ -1,7 +1,8 @@
 Explora.Views.QuestionsIndex = Backbone.CompositeView.extend({
   template: JST['questions/index'],
 
-  initialize: function() {
+  initialize: function(options) {
+    this.options = options || {};
     this.addAllItems();
 
     this.listenTo(this.collection, 'sync', this.render);
@@ -11,6 +12,9 @@ Explora.Views.QuestionsIndex = Backbone.CompositeView.extend({
 
   addIndexItem: function(model) {
     var view = new Explora.Views.QuestionsIndexItem({model: model});
+    if (this.options.simple) {
+      view.template = JST['questions/index_item_simple'];
+    }
     this.addSubview('.questions-index', view, {prepend: true});
   },
 

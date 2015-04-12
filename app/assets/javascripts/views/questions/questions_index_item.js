@@ -8,7 +8,7 @@ Explora.Views.QuestionsIndexItem = Backbone.CompositeView.extend({
     'click .item-delete': 'deleteItem'
   },
 
-  initialize: function() {
+  initialize: function(options) {
     if (this.model.topAnswer().get('created_at')) {
       this.addAnswerIndexItem();
     }
