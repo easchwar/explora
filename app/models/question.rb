@@ -17,4 +17,10 @@ class Question < ActiveRecord::Base
   has_many :taggings, dependent: :destroy
 
   has_many :tags, through: :taggings, source: :tag
+  has_many :related_questions,
+    -> (question) { where.not(id: question.id).uniq },
+    {
+      through: :tags,
+      source: :tagged_questions
+    }
 end
