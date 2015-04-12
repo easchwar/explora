@@ -11,9 +11,16 @@ Explora.Models.Question = Backbone.Model.extend({
 
   tags: function() {
     if (!this._tags) {
-      this._tags = new Explora.Collections.Tags([], {question: this});
+      this._tags = new Explora.Collections.Tags();
     }
     return this._tags;
+  },
+
+  relatedQuestions: function() {
+    if (!this._relatedQuestions) {
+      this._relatedQuestions = new Explora.Collections.Questions();
+    }
+    return this._relatedQuestions;
   },
 
   topAnswer: function() {
@@ -31,6 +38,11 @@ Explora.Models.Question = Backbone.Model.extend({
       this.answers().forEach(function(answer) {
         answer._question = this;
       }.bind(this));
+    }
+
+    if (payload.related_questions) {
+      this.relatedQuestions().set(payload.related_questions);
+      delete payload.related_questions;
     }
 
     if (payload.tags) {
