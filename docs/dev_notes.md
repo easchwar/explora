@@ -2,6 +2,8 @@
 - Adding an answer to a previously unanswered question requires two redirects to
   show it as topAnswer() for the index.
 - sidebar changes size when navigating to and from the question show view.
+  - has to do with the presence of the scrollbar. The fact that the sidebar is
+    fixed makes it seem to grow 
 - ~~No longer using getOrFetch for questionShow because of the issue of possibly
   adding a model to the feed collection that shouldn't be there. This prevents
   the website from caching the question though which forces it to fetch from the
@@ -15,6 +17,7 @@
 - modal for question form
 - make useful navbar
 - change url for tags (use tag_name instead of id)
+- tags collection for form select box
 
 ## Interesting Problems:
 ### Making a feed action for questions controller
