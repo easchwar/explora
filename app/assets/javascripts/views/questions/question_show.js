@@ -1,6 +1,8 @@
 Explora.Views.QuestionShow = Backbone.CompositeView.extend({
   template: JST['questions/show'],
 
+  className: 'row',
+
   initialize: function() {
     this.addForm();
     this.addAnswersIndex();
