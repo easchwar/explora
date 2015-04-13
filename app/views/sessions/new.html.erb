@@ -3,3 +3,13 @@
   <h1>Sign In</h1>
   <%= render 'shared/form', user: @user, url: session_url, button_text: "Sign In" %>
 </div>
+
+<script charset="utf-8">
+  $(function() {
+    $(".button-guest").on("click", function() {
+      $(".sign-in-username").val("ExploraNinja")
+      $(".sign-in-password").val("exploraninja")
+      $("form").submit()
+    })
+  });
+</script>

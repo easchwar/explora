@@ -22,4 +22,8 @@ class Tag < ActiveRecord::Base
     through: :received_subscriptions,
     source: :user
   }
+
+  def self.search_by_tag_name(query)
+    where("lower(tag_name) like ?", "%#{query.downcase}%")
+  end
 end

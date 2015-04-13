@@ -5,14 +5,15 @@
     <label for="username">Username</label>
     <input id="username" type="text"
            name="user[username]" value="<%= user.username %>"
-           placeholder="username" class="form-control">
+           placeholder="username" class="sign-in-username form-control">
   </div>
 
   <div class="form-group">
     <label for="password">Password</label>
     <input id="password" type="password"
-           name="user[password]" placeholder="password" class="form-control">
+           name="user[password]" placeholder="password" class="sign-in-password form-control">
   </div>
 
   <input type="submit" value="<%= button_text %>" class="btn btn-xl btn-primary">
+  <button class="button-guest float-right btn">Sign In as Guest</button>
 </form>
