@@ -1,1 +1,5 @@
 <%= answer.escape('body') %>
+
+<% if (answer.get('author_id') === CURRENT_USER.id) {%>
+  <button class="item-delete btn btn-default btn-xs">X</button>
+<% } %>
