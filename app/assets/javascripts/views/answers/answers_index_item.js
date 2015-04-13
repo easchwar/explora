@@ -2,7 +2,7 @@ Explora.Views.AnswersIndexItem = Backbone.View.extend({
   template: JST['answers/index_item'],
 
   tagName: 'li',
-  className: 'list-group-item',
+  className: 'index-item list-group-item',
 
   events: {
     'click .item-delete': 'deleteItem'
@@ -11,7 +11,7 @@ Explora.Views.AnswersIndexItem = Backbone.View.extend({
   initialize: function() {
     this.listenTo(this.model, 'sync', this.render);
   },
-  
+
   render: function() {
     var content = this.template({answer: this.model});
     this.$el.html(content);

@@ -1,16 +1,14 @@
-<div>
-  <a href="#/questions/<%= question.id %>">
-    <p class="question-index-item-question">
-      <%= question.escape('body') %>
-    </p>
-  </a>
+<a href="#/questions/<%= question.id %>">
+  <p class="question-index-item-question">
+    <%= question.escape('body') %>
+  </p>
+</a>
 
-  <div class="question-index-item-answer">
-    This question needs answers!
-  </div>
-  <br>
-  <button class="btn-index-item-answer btn btn-primary btn-xs">Answer</button>
-  <% if (question.get('author_id') === CURRENT_USER.id) { %>
-    <button class="item-delete btn btn-default btn-xs">X</button>
-  <% } %>
+<div class="question-index-item-answer">
+  This question needs answers!
 </div>
+<br>
+<button class="btn-index-item-answer btn btn-primary btn-xs">Answer</button>
+<% if (question.get('author_id') === CURRENT_USER.id) { %>
+  <button class="item-delete btn btn-default btn-xs">X</button>
+<% } %>

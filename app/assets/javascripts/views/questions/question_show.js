@@ -3,12 +3,21 @@ Explora.Views.QuestionShow = Backbone.CompositeView.extend({
 
   className: 'row',
 
+  events: {
+    'click .add-answer': 'addForm',
+  },
+
   initialize: function() {
     this.addForm();
     this.addAnswersIndex();
     this.addRelatedQuestions();
+    this.addTagsIndex();
 
     this.listenTo(this.model, 'sync', this.render);
+  },
+
+  addAddFormButton: function() {
+
   },
 
   addForm: function() {
@@ -31,6 +40,13 @@ Explora.Views.QuestionShow = Backbone.CompositeView.extend({
       simple: true,
     });
     this.addSubview('.related-questions', view);
+  },
+
+  addTagsIndex: function() {
+    var tags = this.model.tags();
+
+    var view = new Explora.Views.TagsIndexInline({collection: tags});
+    this.addSubview('.tags-index', view);
   },
 
   render: function() {

@@ -2,7 +2,7 @@ Explora.Views.QuestionsIndexItem = Backbone.CompositeView.extend({
   template: JST['questions/index_item'],
 
   tagName: 'li',
-  className: 'list-group-item',
+  className: 'index-item list-group-item',
 
   events: {
     'click .item-delete': 'deleteItem'

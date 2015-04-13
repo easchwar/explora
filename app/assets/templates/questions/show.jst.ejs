@@ -1,28 +1,20 @@
 <div class="col-md-8">
-  <h2>Question Page</h2>
-  <p>
-    <%= question.escape('body') %>
-    <br>
-    tags: <%= question.tags().pluck('tag_name').join(', ') %>
-  </p>
+  <h2><%= question.escape('body') %></h2>
 
+  <div class="tags-index"></div>
 
-  <div class="answer-form">
+  <button class="btn btn-primary">Answer!</button>
 
-  </div>
+  <div class="answer-form"></div>
 
   <h3>Answers</h3>
-  <div class="answers-index">
-
-  </div>
+  <div class="answers-index"></div>
 
   <a href="#">Back to Questions</a>
 </div>
 
 <div class="col-md-4">
   <h3>Related Questions</h3>
-  <div class="related-questions">
-
-  </div>
+  <div class="related-questions"></div>
 
 </div>

@@ -2,7 +2,8 @@ Explora.Routers.Router = Backbone.Router.extend({
 
   routes: {
     "": "feedShow",
-    "questions/tags/:id": "taggedQuestionIndex",
+    "questions/all": "allQuestionsIndex",
+    "questions/tags/:id": "taggedQuestionsIndex",
     "questions/:id": "questionShow",
   },
 
@@ -12,16 +13,26 @@ Explora.Routers.Router = Backbone.Router.extend({
 
     this._questions = new Explora.Collections.Questions();
     this._tags = new Explora.Collections.Tags();
+    this._tags.fetch();
 
     this._defaultSidebar = new Explora.Views.DefaultSidebar({tags: this._tags});
     this.swapSidebar(this._defaultSidebar);
+  },
+
+  allQuestionsIndex: function() {
+    this._questions.fetch();
+
+    var view = new Explora.Views.FeedShow({
+      questions: this._questions,
+      tags: this._tags,
+    });
+    this.swapView(view);
   },
 
   feedShow: function() {
     var feedQuestions = new Explora.Collections.Questions();
     feedQuestions.url = '/api/questions/feed';
     feedQuestions.fetch();
-    this._tags.fetch();
 
     var view = new Explora.Views.FeedShow({
       questions: feedQuestions,
@@ -37,7 +48,7 @@ Explora.Routers.Router = Backbone.Router.extend({
     this.swapView(view);
   },
 
-  taggedQuestionIndex: function(id) {
+  taggedQuestionsIndex: function(id) {
     var tag = this._tags.getOrFetch(id);
 
     var tagQuestions = new Explora.Collections.Questions();

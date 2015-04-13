@@ -18,11 +18,14 @@
 - ~~tags collection for form select box~~
 - ~~conditional delete buttons for questions and answers index items~~
   - add for show view too
-- in tag header view, determine whether the current user is subscribed to the
-  displayed tag (to determine sub/unsub action by clicking glyphicon)
+- Tags
+  - in tag header view, determine whether the current user is subscribed to the
+    displayed tag (to determine sub/unsub action by clicking glyphicon)
+  - make it possible to assign any number of tags to a question
+    - don't use the select form item
+  - change url for tags (use tag_name instead of id)
 - make useful navbar
 - Better seed data
-- change url for tags (use tag_name instead of id)
 - On answer initialize, adding a reference back to the question using the options
 - upgrade answerShow
   - display author

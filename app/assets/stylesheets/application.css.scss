@@ -65,7 +65,10 @@ textarea {
   left: 50px;
 }
 
-.fixed-right {
-  // position: fixed;
-  // left: 600px;
+.item-delete {
+  visibility: hidden;
+}
+
+.index-item:hover .item-delete {
+  visibility: visible;
 }
