@@ -4,6 +4,7 @@
 - sidebar changes size when navigating to and from the question show view.
   - has to do with the presence of the scrollbar. The fact that the sidebar is
     fixed makes it seem to grow
+  - the whole thing is a mess; doesn't resize well at all
 - ~~No longer using getOrFetch for questionShow because of the issue of possibly
   adding a model to the feed collection that shouldn't be there. This prevents
   the website from caching the question though which forces it to fetch from the
