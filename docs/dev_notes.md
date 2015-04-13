@@ -12,12 +12,14 @@
       that is empty and only used for caching purposes. You then getOrFetch from there.
 
 ## Todo:
-- Add route for tagged item feed (already have controller action)
-- Better seed data
-- modal for question form
+- ~~Add route for tagged item feed (already have controller action)~~
+- ~~modal for question form~~
+- ~~tags collection for form select box~~
+- in tag header view, determine whether the current user is subscribed to the
+  displayed tag (to determine sub/unsub action by clicking glyphicon)
 - make useful navbar
+- Better seed data
 - change url for tags (use tag_name instead of id)
-- tags collection for form select box
 - On answer initialize, adding a reference back to the question using the options
 - upgrade answerShow
   - display author
