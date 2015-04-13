@@ -50,6 +50,7 @@ Explora.Routers.Router = Backbone.Router.extend({
     var view = new Explora.Views.FeedShow({
       questions: tagQuestions,
       tags: this._tags,
+      tag: tag,
     });
     this.swapView(view);
   },

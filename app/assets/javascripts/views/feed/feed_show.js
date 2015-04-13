@@ -7,6 +7,9 @@ Explora.Views.FeedShow = Backbone.CompositeView.extend({
     this.tags = options.tags;
     this.questions = options.questions;
 
+    // if viewing a single tag's feed
+    this.tag = options.tag;
+
     // set up subviews
     this.addForm();
     this.addQuestionsIndex();
@@ -29,7 +32,7 @@ Explora.Views.FeedShow = Backbone.CompositeView.extend({
   },
 
   render: function() {
-    var content = this.template();
+    var content = this.template({tag: this.tag});
     this.$el.html(content);
     this.attachSubviews();
     return this;

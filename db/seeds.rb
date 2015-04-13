@@ -5,10 +5,10 @@ Tagging.destroy_all
 Subscription.destroy_all
 
 # Tags
-f = Tag.create!(tag_name: 'food')
-s = Tag.create!(tag_name: 'sports')
-t = Tag.create!(tag_name: 'travel')
-a = Tag.create!(tag_name: 'animals')
+f = Tag.create!(tag_name: 'Food')
+s = Tag.create!(tag_name: 'Sports')
+t = Tag.create!(tag_name: 'Travel')
+a = Tag.create!(tag_name: 'Animals')
 
 # Users
 e = User.create!(username: 'eric', password: 'ericeric')
