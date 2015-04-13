@@ -19,6 +19,9 @@
 - change url for tags (use tag_name instead of id)
 - tags collection for form select box
 - On answer initialize, adding a reference back to the question using the options
+- upgrade answerShow
+  - display author
+  - delete button for answers you have written
 
 ## Interesting Problems:
 ### Making a feed action for questions controller
