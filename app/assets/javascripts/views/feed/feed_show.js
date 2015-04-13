@@ -14,6 +14,10 @@ Explora.Views.FeedShow = Backbone.CompositeView.extend({
     this.addForm();
     this.addQuestionsIndex();
 
+    if (this.tag) {
+      this.addTagHeader(this.tag);
+    }
+
     this.listenTo(this.questions, 'sync', this.render);
   },
 
@@ -31,8 +35,13 @@ Explora.Views.FeedShow = Backbone.CompositeView.extend({
     this.addSubview('.questions-index', view);
   },
 
+  addTagHeader: function(tag) {
+    var view = new Explora.Views.TagHeader({model: tag});
+    this.addSubview('.tag-header', view);
+  },
+
   render: function() {
-    var content = this.template({tag: this.tag});
+    var content = this.template();
     this.$el.html(content);
     this.attachSubviews();
     return this;
