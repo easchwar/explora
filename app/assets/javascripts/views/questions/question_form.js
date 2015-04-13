@@ -33,7 +33,10 @@ Explora.Views.QuestionForm = Backbone.View.extend({
       success: function(model) {
         this.$('textarea').val('');
         this.$('#questionFormModal').modal('hide');
-        this.collection.add(model);
+        
+        $('#questionFormModal').one('hidden.bs.modal', function() {
+          this.collection.add(model);
+        }.bind(this));
       }.bind(this)
     });
   },
