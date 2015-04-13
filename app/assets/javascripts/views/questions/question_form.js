@@ -1,10 +1,11 @@
 Explora.Views.QuestionForm = Backbone.View.extend({
-  template: JST['questions/form'],
+  template: JST['questions/form_modal'],
 
-  tagName: 'form',
+  tagName: 'div',
 
   events: {
-    'submit': 'submit'
+    'click .modal-show': 'setupInputFocus',
+    'click .form-submit': 'submit'
   },
 
   initialize: function(options) {
@@ -18,16 +19,22 @@ Explora.Views.QuestionForm = Backbone.View.extend({
     return this;
   },
 
+  setupInputFocus: function(event) {
+    $('#questionFormModal').one('shown.bs.modal', function () {
+      $('.body-input').focus();
+    });
+  },
+
   submit: function(event) {
     event.preventDefault();
-
-    var question = new Explora.Models.Question(this.$el.serializeJSON());
+    console.log('submitted');
+    var question = new Explora.Models.Question(this.$('.question-form').serializeJSON());
     question.save({}, {
       success: function(model) {
         this.$('textarea').val('');
+        this.$('#questionFormModal').modal('hide');
         this.collection.add(model);
       }.bind(this)
     });
-
   },
 });

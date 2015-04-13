@@ -1,0 +1,32 @@
+<button type="button" class="modal-show btn btn-primary btn-lg form-control" data-toggle="modal" data-target="#questionFormModal">
+  Ask a New Question
+</button>
+
+<!-- Modal -->
+<div class="modal" id="questionFormModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Ask a New Question</h4>
+      </div>
+      <div class="modal-body">
+        <form class="question-form">
+          <textarea class="body-input" name="body" rows="3" placeholder="Type question here"></textarea>
+          <br>
+          <label>Tags
+            <select class="form-tag-list" name="tag_ids">
+              <% tags.each(function(tag) { %>
+                <option value="<%= tag.id %>"><%= tag.escape('tag_name') %></option>
+              <% }) %>
+            </select>
+          </label>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="form-submit btn btn-primary">Ask Question</button>
+      </div>
+    </div>
+  </div>
+</div>
