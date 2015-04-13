@@ -26,7 +26,7 @@ Explora.Views.AnswerForm = Backbone.View.extend({
     var answer = new Explora.Models.Answer(answerData);
     answer.save({}, {
       success: function(model) {
-        this.$('input').val('');
+        this.$('textarea').val('');
         this.collection.add(model);
       }.bind(this)
     });

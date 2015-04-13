@@ -14,6 +14,8 @@ Backbone.CompositeView = Backbone.View.extend({
     options = options || {};
     if (options.prepend) {
       this.$(selector).prepend(subview.$el);
+    } else if (options.replace) {
+      this.$(selector).replaceWith(subview.$el);
     } else {
       this.$(selector).append(subview.$el);
     }

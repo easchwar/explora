@@ -8,7 +8,9 @@ Subscription.destroy_all
 f = Tag.create!(tag_name: 'Food')
 s = Tag.create!(tag_name: 'Sports')
 t = Tag.create!(tag_name: 'Travel')
-a = Tag.create!(tag_name: 'Animals')
+a = Tag.create!(tag_name: 'Lifestyles')
+ex = Tag.create!(tag_name: 'Explora')
+
 
 # Users
 e = User.create!(username: 'eric', password: 'ericeric')
@@ -33,17 +35,20 @@ u.questions.create!(body: 'user1 question1', tag_ids: [f.id, s.id, a.id])
 u.questions.create!(body: 'user1 question2', tag_ids: [f.id, s.id, t.id])
 
 q1 = e.questions.create!(body: "Why can't everybody know what's good?",
-                         tag_ids: [f.id, a.id, t.id])
-q2 = e.questions.create!(body: "Who knows the best place to buy Indiana Jones hats?",
-                         tag_ids: [a.id, s.id, t.id])
-q3 = e.questions.create!(body: "This entry is intentionally extremely long to see how the css handles really long questions in the question index item view on the dashboard_show. It should wrap nicely and not overflow into any adjacent entries",
                          tag_ids: [a.id])
+q2 = e.questions.create!(body: "Who knows the best place to buy Indiana Jones hats?",
+                         tag_ids: [s.id, t.id])
+q3 = e.questions.create!(body: "This entry is intentionally extremely long to see how the css handles really long questions in the question index item view on the dashboard_show. It should wrap nicely and not overflow into any adjacent entries...?",
+                         tag_ids: [ex.id])
 
-u2.questions.create!(body: 'user2 q1 Not in feed', tag_ids: [t.id])
-u2.questions.create!(body: 'user2 q2 Not in feed', tag_ids: [t.id])
-u2.questions.create!(body: 'user2 q3 in feed because of tag', tag_ids: [f.id, s.id, t.id])
+q4 = u2.questions.create!(body: 'How do you subscriber to other users?', tag_ids: [t.id])
+q5 = u2.questions.create!(body: "Who is the best quarterback of all time?", tag_ids: [s.id])
+q6 = u2.questions.create!(body: 'How many licks does it take to get to the center of a tootsie pop?', tag_ids: [f.id])
 
 # Answers
-q1.answers.create!(body: 'me', author_id: u.id)
-q1.answers.create!(body: 'and you', author_id: u2.id)
-q2.answers.create!(body: 'nothing', author_id: u.id)
+q1.answers.create!(body: 'No one really knows', author_id: u.id)
+q1.answers.create!(body: "I'm pretty sure the lyrics are 'Walk in everybody knowswhat's good", author_id: u2.id)
+q2.answers.create!(body: "You'll have to ask Indy", author_id: u.id)
+q5.answers.create!(body: 'Tom Brady, of course.', author_id: u.id)
+q4.answers.create!(body: "lol you can't", author_id: u.id)
+q6.answers.create!(body: "http://journals.cambridge.org/action/displayAbstract?fromPage=online&aid=9533822&fileId=S0022112014007186", author_id: u.id)

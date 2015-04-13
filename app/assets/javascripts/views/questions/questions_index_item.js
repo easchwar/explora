@@ -5,7 +5,8 @@ Explora.Views.QuestionsIndexItem = Backbone.CompositeView.extend({
   className: 'index-item list-group-item',
 
   events: {
-    'click .item-delete': 'deleteItem'
+    'click .item-delete': 'deleteItem',
+    'click .answer-button': 'addForm',
   },
 
   initialize: function(options) {

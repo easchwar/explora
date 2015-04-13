@@ -4,7 +4,6 @@ Explora.Views.QuestionShow = Backbone.CompositeView.extend({
   className: 'row',
 
   events: {
-    'click .add-answer': 'addForm',
   },
 
   initialize: function() {
@@ -14,10 +13,6 @@ Explora.Views.QuestionShow = Backbone.CompositeView.extend({
     this.addTagsIndex();
 
     this.listenTo(this.model, 'sync', this.render);
-  },
-
-  addAddFormButton: function() {
-
   },
 
   addForm: function() {
