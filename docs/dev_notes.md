@@ -15,6 +15,7 @@
 - ~~Add route for tagged item feed (already have controller action)~~
 - ~~modal for question form~~
 - ~~tags collection for form select box~~
+- conditional delete buttons for questions and answers
 - in tag header view, determine whether the current user is subscribed to the
   displayed tag (to determine sub/unsub action by clicking glyphicon)
 - make useful navbar
