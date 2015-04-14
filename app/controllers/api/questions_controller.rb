@@ -10,15 +10,7 @@ class Api::QuestionsController < ApplicationController
 
     @questions.sort! { |a,b| a.created_at <=> b.created_at }
 
-    render :feed
-  end
-
-  def tagged
-    @tag = Tag.find(params[:id])
-    @questions = @tag.tagged_questions.order(created_at: :asc)
-    @questions.to_a.reverse!
-
-    render json: @questions
+    render :index
   end
 
   def index
@@ -32,7 +24,7 @@ class Api::QuestionsController < ApplicationController
       @questions = Question.all
     end
 
-    render json: @questions
+    render :index
   end
 
   def show
