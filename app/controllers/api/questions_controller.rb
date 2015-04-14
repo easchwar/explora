@@ -31,7 +31,7 @@ class Api::QuestionsController < ApplicationController
     else
       @questions = Question.all
     end
-    
+
     render json: @questions
   end
 

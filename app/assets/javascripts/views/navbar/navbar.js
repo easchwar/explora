@@ -8,12 +8,10 @@ Explora.Views.Navbar = Backbone.View.extend({
 
   initialize: function(options) {
     this.router = options.router;
-    this.listenTo(this.router, 'route', this.logRoute);
+    this.listenTo(this.router, 'route', this.routeAction);
   },
 
-  logRoute: function() {
-    console.log('Routed');
-    console.log(arguments);
+  routeAction: function() {
     this.$('input').val('');
   },
 
@@ -26,10 +24,10 @@ Explora.Views.Navbar = Backbone.View.extend({
       name: 'my-dataset',
       source: this.typeaheadSource
     });
+    this.$('.tt-input').css('background-color', 'white');
   },
 
   typeaheadSource: function(query, process) {
-    console.log('typeahead');
     $.ajax({
       url: '/api/tags',
       dataType: 'json',
@@ -51,10 +49,21 @@ Explora.Views.Navbar = Backbone.View.extend({
   },
 
   search: function(event) {
-    // event.preventDefault();
+    event.preventDefault();
     var $form = $(event.currentTarget);
-    console.log($form);
-    console.log($form.serializeJSON());
+    var formData = $form.serializeJSON();
+
+    $.ajax({
+      url: '/api/tags/find',
+      type: 'GET',
+      dataType: 'json',
+      data: formData,
+      success: function(tag) {
+        $form.children('.input').val('');
+        $('.typeahead').typeahead('close');
+        Backbone.history.navigate('/tags/' + tag.id + '/questions', {trigger: true});
+      },
+    });
   },
 
   signOut: function(event) {

@@ -3,7 +3,7 @@ Explora.Routers.Router = Backbone.Router.extend({
   routes: {
     "": "feedShow",
     "questions/all": "allQuestionsIndex",
-    "questions/tags/:id": "taggedQuestionsIndex",
+    "tags/:id/questions": "taggedQuestionsIndex",
     "questions/:id": "questionShow",
   },
 

@@ -1,6 +1,6 @@
 <% tags.forEach(function(tag) { %>
   <li class="list-group-item">
-    <a href="#/questions/tags/<%= tag.id %>">
+    <a href="#/tags/<%= tag.id %>/questions">
       <%= tag.escape('tag_name') %>
     </a>
   </li>

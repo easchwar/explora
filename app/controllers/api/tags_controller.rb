@@ -11,6 +11,16 @@ class Api::TagsController < ApplicationController
     render json: @tags
   end
 
+  def find
+    @tag = Tag.find_by("lower(tag_name) like ?", params[:tag_name].downcase)
+
+    if @tag
+      render json: @tag
+    else
+      render json: {}, status: 422
+    end
+  end
+
   def show
     @tag = Tag.find(params[:id])
     render json: @tag

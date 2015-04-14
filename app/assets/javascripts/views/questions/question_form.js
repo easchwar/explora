@@ -27,13 +27,12 @@ Explora.Views.QuestionForm = Backbone.View.extend({
 
   submit: function(event) {
     event.preventDefault();
-    console.log('submitted');
     var question = new Explora.Models.Question(this.$('.question-form').serializeJSON());
     question.save({}, {
       success: function(model) {
         this.$('textarea').val('');
         this.$('#questionFormModal').modal('hide');
-        
+
         $('#questionFormModal').one('hidden.bs.modal', function() {
           this.collection.add(model);
         }.bind(this));
