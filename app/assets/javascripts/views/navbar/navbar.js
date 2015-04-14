@@ -9,15 +9,6 @@ Explora.Views.Navbar = Backbone.View.extend({
   initialize: function(options) {
     this.router = options.router;
     this.listenTo(this.router, 'route', this.logRoute);
-
-    // $('.typeahead').typeahead({
-    //   minLength: 2,
-    //   highlight: true,
-    // },
-    // {
-    //   name: 'my-dataset',
-    //   source: this.typeaheadSource
-    // });
   },
 
   logRoute: function() {
@@ -26,13 +17,36 @@ Explora.Views.Navbar = Backbone.View.extend({
     this.$('input').val('');
   },
 
-  typaheadSource: function(query, process) {
+  addTypeahead: function() {
+    this.$('.typeahead').typeahead({
+      minLength: 2,
+      highlight: true,
+    },
+    {
+      name: 'my-dataset',
+      source: this.typeaheadSource
+    });
+  },
 
+  typeaheadSource: function(query, process) {
+    console.log('typeahead');
+    $.ajax({
+      url: '/api/tags',
+      dataType: 'json',
+      data: {search: query},
+      success: function(data) {
+        var names = _.map(data, function(object) {
+          return {value: object.tag_name};
+        });
+        return process(names);
+      }
+    });
   },
 
   render: function() {
     var content = this.template();
     this.$el.html(content);
+    this.addTypeahead();
     return this;
   },
 

@@ -83,7 +83,8 @@ Explora.Routers.Router = Backbone.Router.extend({
       this._currentView.remove();
     }
     this._currentView = view;
-    this.$rootEl.html(view.render().$el);
+    this.$rootEl.html(view.$el);
+    view.render();
   },
 
 });
