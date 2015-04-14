@@ -15,7 +15,12 @@ Explora.Routers.Router = Backbone.Router.extend({
     this._tags = new Explora.Collections.Tags();
     this._tags.fetch();
 
-    this._defaultSidebar = new Explora.Views.DefaultSidebar({tags: this._tags});
+    this._userTags = new Explora.Collections.Tags();
+    this._userTags.fetch({
+      data: {user_id: CURRENT_USER.id},
+    });
+
+    this._defaultSidebar = new Explora.Views.DefaultSidebar({tags: this._userTags});
     this.swapSidebar(this._defaultSidebar);
   },
 
