@@ -1,7 +1,13 @@
-
-<div class="sign-in col-md-4 col-md-offset-4">
+<div class="sign-in-backdrop">
   <h1>Sign In</h1>
-  <%= render 'shared/form', user: @user, url: session_url, button_text: "Sign In" %>
+  <div class="sign-in col-md-4 col-md-offset-4">
+    <%= render 'shared/form', user: @user, url: session_url, button_text: "Sign In" %>
+  </div>
+  <br>
+  <div class="col-md-4 col-md-offset-4">
+    <span class="faded">Not a member?</span>
+    <a class="auth-link" href="/users/new">Create Account</a>
+  </div>
 </div>
 
 <script charset="utf-8">

@@ -40,11 +40,18 @@ textarea {
 }
 
 .sign-in {
-  margin-top: 100px;
+  text-align: left;
+  color: black;
   border: 1px solid #ddd;
   border-radius: 4px;
   box-shadow: 2px 2px 10px #eee;
   padding: 10px;
+}
+
+.sign-in-backdrop {
+  margin-top: 100px;
+  text-align: center;
+  color: darkblue;
 }
 
 .question-index-item-question {
