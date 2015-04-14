@@ -5,7 +5,7 @@ class Api::TagsController < ApplicationController
     elsif params[:search]
       @tags = Tag.search_by_tag_name(params[:search])
     else
-      @tags = Tag.all
+      @tags = Tag.all.order(created_at: :asc).limit(6)
     end
 
     render json: @tags

@@ -2,7 +2,7 @@ Explora.Views.TagsIndex = Backbone.View.extend({
   template: JST['tags/index'],
 
   tagName: 'ul',
-  className: 'list-group',
+  className: 'list-unstyled',
 
   initialize: function() {
     this.listenTo(this.collection, 'sync', this.render);

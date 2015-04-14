@@ -144,3 +144,32 @@ textarea {
 .twitter-typeahead .typeahead.tt-input {
   background-color: #eee;
 }
+
+.tags-index ul {
+  margin-left: 5px;
+}
+.tags-index li {
+  margin-top: 5px;
+}
+.header-line {
+  margin-bottom: 0;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #ccc
+}
+
+.tagged li {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 1px 1px 5px #eee;
+  transition: background 0.2s;
+}
+
+.tagged li:hover {
+  background: #ccc;
+  cursor: pointer;
+}
+
+.tagged li:hover a {
+  color: darkblue;
+  text-decoration: none;
+}

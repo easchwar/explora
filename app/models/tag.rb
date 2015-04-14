@@ -26,4 +26,8 @@ class Tag < ActiveRecord::Base
   def self.search_by_tag_name(query)
     where("lower(tag_name) like ?", "%#{query.downcase}%")
   end
+
+  def self.ranked
+    includes(:tagged_questions).group("tags.id").order("questions.count")
+  end
 end
