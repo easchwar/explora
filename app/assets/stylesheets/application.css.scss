@@ -165,11 +165,17 @@ textarea {
 }
 
 .tagged li:hover {
-  background: #ccc;
+  background: lightblue;
   cursor: pointer;
+}
+.tagged li a {
+  transition: color 0.2s;
+}
+
+a:hover {
+  text-decoration: inherit;
 }
 
 .tagged li:hover a {
-  color: darkblue;
-  text-decoration: none;
+  color: white;
 }
