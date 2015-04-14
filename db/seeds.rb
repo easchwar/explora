@@ -5,12 +5,20 @@ Tagging.destroy_all
 Subscription.destroy_all
 
 # Tags
-f = Tag.create!(tag_name: 'Food')
-s = Tag.create!(tag_name: 'Sports')
-t = Tag.create!(tag_name: 'Travel')
+# f = Tag.create!(tag_name: 'Food')
+# s = Tag.create!(tag_name: 'Sports')
+# t = Tag.create!(tag_name: 'Travel')
 a = Tag.create!(tag_name: 'Lifestyles')
 ex = Tag.create!(tag_name: 'Explora')
 
+contents = File.readlines("config/seed_data/topic_names.txt")
+contents.each do |topic|
+  Tag.create!(tag_name: topic.strip)
+end
+
+f = Tag.find_by_tag_name('Food')
+s = Tag.find_by_tag_name('Sports')
+t = Tag.find_by_tag_name('Travel')
 
 # Users
 e = User.create!(username: 'eric', password: 'ericeric')
