@@ -1,18 +1,10 @@
-Explora.Views.Navbar = Backbone.View.extend({
-  template: JST['navbar/navbar'],
+Explora.Views.TagSearchForm = Backbone.View.extend({
+  template: JST['tags/search_form'],
+
+  tagName: "form",
 
   events: {
-    'click .sign-out': 'signOut',
-    'submit form': 'search',
-  },
-
-  initialize: function(options) {
-    this.router = options.router;
-    this.listenTo(this.router, 'route', this.routeAction);
-  },
-
-  routeAction: function() {
-    this.$('input').val('');
+    'submit': 'search',
   },
 
   addTypeahead: function() {
@@ -50,8 +42,7 @@ Explora.Views.Navbar = Backbone.View.extend({
 
   search: function(event) {
     event.preventDefault();
-    var $form = $(event.currentTarget);
-    var formData = $form.serializeJSON();
+    var formData = this.$el.serializeJSON();
 
     $.ajax({
       url: '/api/tags/find',
@@ -59,24 +50,10 @@ Explora.Views.Navbar = Backbone.View.extend({
       dataType: 'json',
       data: formData,
       success: function(tag) {
-        $form.children('input').val('');
-        $('.typeahead').typeahead('close');
-        Backbone.history.navigate('/tags/' + tag.id + '/questions', {trigger: true});
-      },
+        this.$('input').val('');
+        this.$('.typeahead').typeahead('close');
+        this.collection.add(tag);
+      }.bind(this),
     });
   },
-
-  signOut: function(event) {
-    event.preventDefault();
-
-    $.ajax({
-      url: '/session',
-      method: 'DELETE',
-      success: function() {
-
-        window.location = "/";
-      }
-    });
-  },
-
 });

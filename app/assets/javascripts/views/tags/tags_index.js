@@ -5,7 +5,7 @@ Explora.Views.TagsIndex = Backbone.View.extend({
   className: 'list-unstyled',
 
   initialize: function() {
-    this.listenTo(this.collection, 'sync', this.render);
+    this.listenTo(this.collection, 'sync add remove', this.render);
   },
 
   render: function() {
