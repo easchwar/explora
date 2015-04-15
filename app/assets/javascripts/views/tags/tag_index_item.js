@@ -18,7 +18,4 @@ Explora.Views.TagsIndexItem = Backbone.View.extend({
     return this;
   },
 
-  unsubscribe: function(event) {
-
-  },
 });
