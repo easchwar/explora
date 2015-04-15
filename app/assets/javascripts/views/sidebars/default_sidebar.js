@@ -24,8 +24,9 @@ Explora.Views.DefaultSidebar = Backbone.CompositeView.extend({
   },
 
   toggleHidden: function() {
-    this.$('.tag-search').toggleClass('hidden');
     this.$('.add-search').toggleClass('hidden');
+    this.$('.tag-search').toggleClass('hidden');
+    this.$('.tag-search').find('input').focus();
   },
 
   render: function() {

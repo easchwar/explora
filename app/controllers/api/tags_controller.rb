@@ -3,7 +3,7 @@ class Api::TagsController < ApplicationController
     if params[:user_id]
       @tags = User.find(params[:user_id]).subscribed_tags
     elsif params[:search]
-      @tags = Tag.search_by_tag_name(params[:search])
+      @tags = Tag.search_by_tag_name(params[:search]).limit(6)
     else
       @tags = Tag.all.order(created_at: :asc).limit(6)
     end
