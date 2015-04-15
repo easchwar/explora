@@ -53,24 +53,21 @@ Explora.Views.TagSearchForm = Backbone.View.extend({
         this.$('input').val('');
         this.$('.typeahead').typeahead('close');
 
-        var data = {
+        var subData = {
           user_id: ""+ CURRENT_USER.id,
           subscribable_id: "" + tag.id,
           subscribable_type: 'Tag',
         };
 
-        this.subscribe(data, tag);
+        this.subscribe(subData, tag);
       }.bind(this),
     });
   },
 
-  subscribe: function (data, tag) {
-    $.ajax({
-      url: '/api/subscriptions',
-      type: 'POST',
-      dataType: 'json',
-      contentType: "application/json",
-      data: JSON.stringify(data),
+  subscribe: function (subData, tag) {
+    var subscription = new Explora.Models.Subscription(subData);
+
+    subscription.save({}, {
       success: function() {
         this.collection.add(tag);
         Backbone.history.navigate('/tags/' + tag.id + '/questions', {trigger: true});
