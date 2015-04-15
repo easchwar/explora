@@ -18,7 +18,10 @@ Explora.Views.TagsIndex = Backbone.CompositeView.extend({
   },
 
   addIndexItem: function(model) {
-    var view = new Explora.Views.TagsIndexItem({model: model});
+    var view = new Explora.Views.TagsIndexItem({
+      model: model,
+      collection: this.collection,
+      });
     this.addSubview('.tags-index', view);
   },
 
