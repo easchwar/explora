@@ -19,7 +19,6 @@ Explora.Views.TagsIndexItem = Backbone.View.extend({
   },
 
   removeSubscription: function() {
-    console.log('registered');
     this.model.subscription().destroy();
     this.collection.remove(this.model);
   }

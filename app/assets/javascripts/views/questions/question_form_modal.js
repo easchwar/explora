@@ -1,16 +1,21 @@
-Explora.Views.QuestionForm = Backbone.View.extend({
+Explora.Views.QuestionFormModal = Backbone.CompositeView.extend({
   template: JST['questions/form_modal'],
 
   tagName: 'div',
 
   events: {
     'click .modal-show': 'setupInputFocus',
-    'click .form-submit': 'submit'
+    'click .form-submit': 'submit',
+    'hidden.bs.modal': 'clearValues',
   },
 
   initialize: function(options) {
     this.tags = options.tags;
     this.listenTo(this.tags, 'sync', this.render);
+  },
+
+  clearValues: function(event) {
+    this.$('textarea').val('');
   },
 
   render: function() {
