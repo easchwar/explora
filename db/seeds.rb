@@ -49,7 +49,7 @@ q2 = e.questions.create!(body: "Who knows the best place to buy Indiana Jones ha
 q3 = e.questions.create!(body: "This entry is intentionally extremely long to see how the css handles really long questions in the question index item view on the dashboard_show. It should wrap nicely and not overflow into any adjacent entries...?",
                          tag_ids: [ex.id])
 
-q4 = u2.questions.create!(body: 'How do you subscriber to other users?', tag_ids: [t.id])
+q4 = u2.questions.create!(body: 'How do you subscribe to other users?', tag_ids: [t.id])
 q5 = u2.questions.create!(body: "Who is the best quarterback of all time?", tag_ids: [s.id])
 q6 = u2.questions.create!(body: 'How many licks does it take to get to the center of a tootsie pop?', tag_ids: [f.id])
 
