@@ -52,26 +52,29 @@ Explora.Views.TagSearchForm = Backbone.View.extend({
       success: function(tag) {
         this.$('input').val('');
         this.$('.typeahead').typeahead('close');
+
         var data = {
           user_id: ""+ CURRENT_USER.id,
           subscribable_id: "" + tag.id,
           subscribable_type: 'Tag',
         };
-        $.ajax({
-          url: '/api/subscriptions',
-          type: 'POST',
-          dataType: 'json',
-          contentType: "application/json",
-          data: JSON.stringify(data),
-          success: function(sub) {
-            this.collection.add(tag);
-          }.bind(this)
-        });
+
+        this.subscribe(data, tag);
       }.bind(this),
     });
-    function secondCall (data) {
-      console.log(data);
+  },
 
-    }
+  subscribe: function (data, tag) {
+    $.ajax({
+      url: '/api/subscriptions',
+      type: 'POST',
+      dataType: 'json',
+      contentType: "application/json",
+      data: JSON.stringify(data),
+      success: function() {
+        this.collection.add(tag);
+        Backbone.history.navigate('/tags/' + tag.id + '/questions', {trigger: true});
+      }.bind(this)
+    });
   },
 });
