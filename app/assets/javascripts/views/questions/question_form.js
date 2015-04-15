@@ -35,6 +35,7 @@ Explora.Views.QuestionForm = Backbone.View.extend({
 
         $('#questionFormModal').one('hidden.bs.modal', function() {
           this.collection.add(model);
+          Backbone.history.navigate('/questions/' + model.id, {trigger: true});
         }.bind(this));
       }.bind(this)
     });

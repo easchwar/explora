@@ -3,8 +3,8 @@ class Api::QuestionsController < ApplicationController
 
   def feed
     subbed_user_questions = current_user.subscribed_user_questions
-    subbed_tag_questions = current_user.subscribed_tag_questions.
-      where.not(author_id: current_user.id)
+    subbed_tag_questions = current_user.subscribed_tag_questions
+      # where.not(author_id: current_user.id)
 
     @questions = (subbed_user_questions.to_a + subbed_tag_questions.to_a).uniq
 
