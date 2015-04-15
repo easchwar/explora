@@ -1,5 +1,5 @@
 Explora.Views.TagsIndexInline = Backbone.View.extend({
-  template: JST['tags/index'],
+  template: JST['tags/index_inline'],
 
   tagName: 'ul',
   className: 'list-group list-inline',
