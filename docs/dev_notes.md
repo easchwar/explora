@@ -23,7 +23,7 @@
     displayed tag (to determine sub/unsub action by clicking glyphicon)
   - make it possible to assign any number of tags to a question
     - don't use the select form item
-  - change url for tags (use tag_name instead of id)
+  - upon subscription to tag, add it alphabetically to the sidebar
 - make useful navbar
 - Better seed data
 - On answer initialize, adding a reference back to the question using the options

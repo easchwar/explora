@@ -14,13 +14,16 @@
         <form class="question-form">
           <textarea class="body-input" name="body" rows="3" placeholder="Type question here"></textarea>
           <br>
-          <label>Tags
-            <select class="form-tag-list" name="tag_ids">
-              <% tags.each(function(tag) { %>
-                <option value="<%= tag.id %>"><%= tag.escape('tag_name') %></option>
-              <% }) %>
-            </select>
+          <div class="">
+            <label>Tags
+              <input type="text" class="typeahead">
+              <select class="form-tag-list" name="tag_ids">
+                <% tags.each(function(tag) { %>
+                  <option value="<%= tag.id %>"><%= tag.escape('tag_name') %></option>
+                <% }) %>
+              </select>
           </label>
+          </div>
         </form>
       </div>
       <div class="modal-footer">

@@ -86,7 +86,7 @@ textarea {
   width: 396px;
   height: 30px;
   padding: 8px 12px;
-  font-size: 18px;
+  font-size: 14px;
   line-height: 30px;
   border: 1px solid #ccc;
   border-radius: 4px;
@@ -98,26 +98,28 @@ textarea {
 }
 
 .tt-dropdown-menu {
-  width: 340px;
-  margin-top: 6px;
-  padding: 8px 0;
+  width: 100%;
+  margin-top: 4px;
+  padding: 4px 0;
   background-color: #fff;
   border: 1px solid #ccc;
   border: 1px solid rgba(0, 0, 0, 0.2);
-  border-radius: 8px;
-  box-shadow: 0 5px 10px rgba(0,0,0,.2);
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0,0,0,.2);
+}
+
+.tt-dropdown-menu:hover {
+  cursor: pointer;
 }
 
 .tt-suggestion {
   padding: 3px 20px;
-  font-size: 18px;
   line-height: 24px;
 }
 
 .tt-suggestion.tt-cursor {
   color: #fff;
-  background-color: #0097cf;
-
+  background-color: cornflowerblue;
 }
 
 .tt-suggestion p {
@@ -186,6 +188,7 @@ a:hover {
   width: 100%;
   font-size: inherit;
 }
-#sidebar .tt-dropdown-menu {
-  width: 100%;
+
+.add-search {
+  margin-left: 5px;
 }
