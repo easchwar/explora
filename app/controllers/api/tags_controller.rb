@@ -9,7 +9,7 @@ class Api::TagsController < ApplicationController
       @tags = Tag.all.order(created_at: :asc).limit(6)
     end
 
-    render json: @tags
+    render :index
   end
 
   def find
