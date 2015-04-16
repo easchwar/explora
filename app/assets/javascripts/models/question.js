@@ -1,7 +1,6 @@
 Explora.Models.Question = Backbone.Model.extend({
   urlRoot: '/api/questions',
 
-
   answers: function() {
     if (!this._answers) {
       this._answers = new Explora.Collections.Answers([], {question: this});
@@ -56,5 +55,11 @@ Explora.Models.Question = Backbone.Model.extend({
     }
 
     return payload;
+  },
+
+  toJSON: function() {
+    var data = _.clone(this.attributes);
+    data.tag_ids = this.tags().pluck('id');
+    return data;
   },
 });

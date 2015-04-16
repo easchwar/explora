@@ -5,7 +5,7 @@ Explora.Views.TagsIndexInline = Backbone.View.extend({
   className: 'list-group list-inline',
 
   initialize: function() {
-    this.listenTo(this.collection, 'sync add', this.render);
+    this.listenTo(this.collection, 'sync add reset', this.render);
   },
 
   render: function() {

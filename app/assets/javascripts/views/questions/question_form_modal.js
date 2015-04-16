@@ -4,23 +4,36 @@ Explora.Views.QuestionFormModal = Backbone.CompositeView.extend({
   tagName: 'div',
 
   events: {
+    'submit': 'suppress',
     'click .modal-show': 'setupInputFocus',
     'click .form-submit': 'submit',
     'hidden.bs.modal': 'clearValues',
   },
 
-  initialize: function(options) {
-    this.tags = options.tags;
-    this.listenTo(this.tags, 'sync', this.render);
+  initialize: function() {
+    this.addTagForm();
+    this.addTagsIndex();
+  },
+
+  addTagForm: function() {
+    var view = new Explora.Views.TagAddForm({collection: this.model.tags()});
+    this.addSubview('.tag-search-form', view);
+  },
+
+  addTagsIndex: function() {
+    var view = new Explora.Views.TagsIndexInline({collection: this.model.tags()});
+    this.addSubview('.tags-index', view);
   },
 
   clearValues: function(event) {
     this.$('textarea').val('');
+    this.tags.reset([]);
   },
 
   render: function() {
     var content = this.template({tags: this.tags});
     this.$el.html(content);
+    this.attachSubviews();
     return this;
   },
 
@@ -32,8 +45,8 @@ Explora.Views.QuestionFormModal = Backbone.CompositeView.extend({
 
   submit: function(event) {
     event.preventDefault();
-    var question = new Explora.Models.Question(this.$('.question-form').serializeJSON());
-    question.save({}, {
+    var formData = this.$('.question-form').serializeJSON();
+    this.model.save(formData, {
       success: function(model) {
         this.$('textarea').val('');
         this.$('#questionFormModal').modal('hide');
@@ -44,5 +57,9 @@ Explora.Views.QuestionFormModal = Backbone.CompositeView.extend({
         }.bind(this));
       }.bind(this)
     });
+  },
+
+  suppress: function(event) {
+    event.preventDefault();
   },
 });

@@ -4,7 +4,6 @@ Explora.Views.FeedShow = Backbone.CompositeView.extend({
   className: 'row',
 
   initialize: function(options) {
-    this.tags = options.tags;
     this.questions = options.questions;
 
     // if viewing a single tag's feed
@@ -24,6 +23,7 @@ Explora.Views.FeedShow = Backbone.CompositeView.extend({
   addForm: function() {
     var view = new Explora.Views.QuestionFormModal({
       collection: this.questions,
+      model: new Explora.Models.Question(),
       tags: this.tags,
     });
     this.addSubview('.question-form', view);
