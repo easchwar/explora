@@ -203,3 +203,8 @@ a:hover {
 #questionFormModal .tt-dropdown-menu, .tt-input {
   width: inherit;
 }
+
+.index-div {
+  max-height: 300px;
+  overflow: auto;
+}

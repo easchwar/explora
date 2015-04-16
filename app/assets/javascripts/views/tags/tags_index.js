@@ -2,6 +2,7 @@ Explora.Views.TagsIndex = Backbone.CompositeView.extend({
   template: JST['tags/index'],
 
   tagName: 'div',
+  className: 'index-div',
 
   initialize: function() {
     this.addAllItems();

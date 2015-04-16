@@ -10,7 +10,6 @@ Explora.Views.DefaultSidebar = Backbone.CompositeView.extend({
     this.tags = options.tags;
     this.addTagsIndex();
     this.addTagSearch();
-    // this.listenTo(this.tags, 'sync', this.render);
   },
 
   addTagsIndex: function() {
