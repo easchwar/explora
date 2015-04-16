@@ -21,15 +21,16 @@
 - Tags
   - in tag header view, determine whether the current user is subscribed to the
     displayed tag (to determine sub/unsub action by clicking glyphicon)
-  - make it possible to assign any number of tags to a question
-    - don't use the select form item
+  - ~~make it possible to assign any number of tags to a question~~
+    - ~~don't use the select form item~~
   - upon subscription to tag, add it alphabetically to the sidebar
 - make useful navbar
+  - ~~implement search~~
 - Better seed data
 - On answer initialize, adding a reference back to the question using the options
 - upgrade answerShow
   - display author
-  - delete button for answers you have written
+  - ~~delete button for answers you have written~~
 
 ## Interesting Problems:
 ### Making a feed action for questions controller
