@@ -90,10 +90,9 @@ q6.answers.create!(body: "http://journals.cambridge.org/action/displayAbstract?f
   Answer.create!(body: Faker::Lorem.paragraph,
                  author_id: rand(u_id_first..u_id_last),
                  question_id: rand(q_id_first..q_id_last))
-end
-
-60.times do
-  Answer.create!(body: "The key is" + Faker::Company.catch_phrase + '.',
-                 author_id: rand(u_id_first..u_id_last),
-                 question_id: rand(q_id_first..q_id_last))
+  if rand(1..3) == 1
+    Answer.create!(body: "The key is " + Faker::Company.catch_phrase.downcase + '.',
+                   author_id: rand(u_id_first..u_id_last),
+                   question_id: rand(q_id_first..q_id_last))
+  end
 end
