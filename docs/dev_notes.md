@@ -33,6 +33,7 @@
 - upgrade answerShow
   - display author
   - ~~delete button for answers you have written~~
+- sign up page
 
 ## Interesting Problems:
 ### Making a feed action for questions controller

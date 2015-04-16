@@ -15,5 +15,7 @@
   </div>
 
   <input type="submit" value="<%= button_text %>" class="btn btn-xl btn-primary">
-  <button class="button-guest float-right btn">Sign In as Guest</button>
+  <% if type == "session" %>
+    <button class="button-guest float-right btn">Sign In as Guest</button>
+  <% end %>
 </form>
