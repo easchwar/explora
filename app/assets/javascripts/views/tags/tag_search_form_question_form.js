@@ -10,38 +10,9 @@ Explora.Views.TagSearchFormQuestionForm = Backbone.View.extend({
   initialize: function() {
   },
 
-  addTypeahead: function() {
-    console.log('added');
-    this.$('.typeahead').typeahead({
-      minLength: 1,
-      highlight: true,
-    },
-    {
-      name: 'my-dataset',
-      source: this.typeaheadSource
-    });
-    this.$('.tt-input').css('background-color', 'white');
-  },
-
-  typeaheadSource: function(query, process) {
-    console.log('typeahead');
-    $.ajax({
-      url: '/api/tags',
-      dataType: 'json',
-      data: {search: query},
-      success: function(data) {
-        var names = _.map(data, function(object) {
-          return {value: object.tag_name};
-        });
-        return process(names);
-      }
-    });
-  },
-
   render: function() {
     var content = this.template({tags: this.collection});
     this.$el.html(content);
-    this.addTypeahead();
     return this;
   },
 

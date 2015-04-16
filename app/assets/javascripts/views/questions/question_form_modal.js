@@ -8,11 +8,44 @@ Explora.Views.QuestionFormModal = Backbone.CompositeView.extend({
     'click .modal-show': 'setupInputFocus',
     'click .form-submit': 'submit',
     'hidden.bs.modal': 'clearValues',
+    'shown.bs.modal': 'inputFocus'
   },
 
   initialize: function() {
     this.addTagForm();
     this.addTagsIndex();
+  },
+
+  logIt: function() {
+    console.log('here');
+  },
+
+  addTypeahead: function() {
+    console.log('added');
+    this.$('.typeahead').typeahead({
+      minLength: 1,
+      highlight: true,
+    },
+    {
+      name: 'my-dataset',
+      source: this.typeaheadSource
+    });
+    this.$('.tt-input').css('background-color', 'white');
+  },
+
+  typeaheadSource: function(query, process) {
+    console.log('typeahead');
+    $.ajax({
+      url: '/api/tags',
+      dataType: 'json',
+      data: {search: query},
+      success: function(data) {
+        var names = _.map(data, function(object) {
+          return {value: object.tag_name};
+        });
+        return process(names);
+      }
+    });
   },
 
   addTagForm: function() {
@@ -39,10 +72,12 @@ Explora.Views.QuestionFormModal = Backbone.CompositeView.extend({
     return this;
   },
 
-  setupInputFocus: function(event) {
-    $('#questionFormModal').one('shown.bs.modal', function () {
-      $('.body-input').focus();
-    });
+  inputFocus: function(event) {
+    if (!this._addedTypeahead) {
+      this.addTypeahead();
+      this._addedTypeahead = true;
+    }
+    this.$('.body-input').focus();
   },
 
   submit: function(event) {
