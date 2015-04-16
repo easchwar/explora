@@ -1,5 +1,5 @@
-Explora.Views.TagAddForm = Backbone.View.extend({
-  template: JST['tags/search_form'],
+Explora.Views.TagSearchFormQuestionForm = Backbone.View.extend({
+  template: JST['tags/search_form_question_form'],
 
   tagName: 'form',
 
@@ -47,7 +47,6 @@ Explora.Views.TagAddForm = Backbone.View.extend({
 
   search: function(event) {
     event.preventDefault();
-    console.log('search');
     var formData = this.$el.serializeJSON();
 
     $.ajax({

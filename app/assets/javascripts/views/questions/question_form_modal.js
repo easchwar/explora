@@ -16,18 +16,20 @@ Explora.Views.QuestionFormModal = Backbone.CompositeView.extend({
   },
 
   addTagForm: function() {
-    var view = new Explora.Views.TagAddForm({collection: this.model.tags()});
+    var view = new Explora.Views.TagSearchFormQuestionForm({
+      collection: this.model.tags()
+    });
     this.addSubview('.tag-search-form', view);
   },
 
   addTagsIndex: function() {
-    var view = new Explora.Views.TagsIndexInline({collection: this.model.tags()});
+    var view = new Explora.Views.TagsIndexQuestionForm({collection: this.model.tags()});
     this.addSubview('.tags-index', view);
   },
 
   clearValues: function(event) {
     this.$('textarea').val('');
-    this.tags.reset([]);
+    this.model.tags().reset([]);
   },
 
   render: function() {

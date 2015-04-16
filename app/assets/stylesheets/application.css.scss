@@ -142,7 +142,7 @@ textarea {
   border-bottom: 1px solid #ccc
 }
 
-.tagged li {
+.list-inline li {
   border: 1px solid #ccc;
   border-radius: 4px;
   box-shadow: 1px 1px 5px #eee;
@@ -191,4 +191,8 @@ a:hover {
 
 .add-search {
   margin-left: 5px;
+}
+
+.remove-tag {
+  font-weight: bold;
 }
