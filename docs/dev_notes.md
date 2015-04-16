@@ -16,6 +16,7 @@
 - ~~Add route for tagged item feed (already have controller action)~~
 - ~~modal for question form~~
 - ~~tags collection for form select box~~
+- ~~sign up page~~
 - ~~conditional delete buttons for questions and answers index items~~
   - add for show view too
 - Tags
@@ -25,15 +26,16 @@
     - ~~don't use the select form item~~
   - ~~fix typeahead on question form~~
   - ~~allow deletion of tags in question form~~
-  - upon subscription to tag, add it alphabetically to the sidebar
+  - upon subscription to tag, add it alphabetically to the sidebar (require a
+    change to addSubview())
 - make useful navbar
+  - this depends on whether I want to make a user profile page.
   - ~~implement search~~
 - Better seed data
-- On answer initialize, adding a reference back to the question using the options
 - upgrade answerShow
   - display author
   - ~~delete button for answers you have written~~
-- sign up page
+- rich text editor
 
 ## Interesting Problems:
 ### Making a feed action for questions controller
