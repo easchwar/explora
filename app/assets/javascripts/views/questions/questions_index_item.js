@@ -6,15 +6,24 @@ Explora.Views.QuestionsIndexItem = Backbone.CompositeView.extend({
 
   events: {
     'click .item-delete': 'deleteItem',
-    'click .answer-button': 'addForm',
+    'click .item-answer': 'addForm',
   },
 
   initialize: function(options) {
     if (this.model.topAnswer().get('created_at')) {
       this.addAnswerIndexItem();
     }
-
     this.listenTo(this.model, 'sync', this.render);
+  },
+
+  addForm: function() {
+    var view = new Explora.Views.AnswerForm({
+      collection: this.model.answers(),
+      question: this.model,
+    });
+
+    this.addSubview('.answer-form', view);
+    this.$('.item-answer').addClass('hidden');
   },
 
   addAnswerIndexItem: function() {
