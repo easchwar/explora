@@ -23,8 +23,8 @@
     displayed tag (to determine sub/unsub action by clicking glyphicon)
   - ~~make it possible to assign any number of tags to a question~~
     - ~~don't use the select form item~~
-  - fix typeahead on question form
-  - allow deletion of tags in question form
+  - ~~fix typeahead on question form~~
+  - ~~allow deletion of tags in question form~~
   - upon subscription to tag, add it alphabetically to the sidebar
 - make useful navbar
   - ~~implement search~~
