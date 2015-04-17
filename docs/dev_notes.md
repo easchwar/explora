@@ -11,7 +11,9 @@
   databasse every time it instantiates the view.~~
     - ~~possible fix:~~__FIXED__: make a generic allQuestions collection at router initalize
       that is empty and only used for caching purposes. You then getOrFetch from there.
-
+- clicking the edge of a tag doesn't fire the link because the <li> is slightly bigger
+  than the anchor tag.
+  
 ## Todo:
 - ~~Add route for tagged item feed (already have controller action)~~
 - ~~modal for question form~~
