@@ -23,6 +23,7 @@ Explora.Views.QuestionsIndexItem = Backbone.CompositeView.extend({
     });
 
     this.addSubview('.answer-form', view);
+    this.$('textarea').focus();
     this.$('.item-answer').addClass('hidden');
   },
 
