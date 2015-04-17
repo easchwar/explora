@@ -35,6 +35,11 @@ Explora.Routers.Router = Backbone.Router.extend({
     this.swapView(view);
   },
 
+  defaultSidebar: function() {
+    var view = new Explora.Views.DefaultSidebar({tags: this._userTags});
+    return view;
+  },
+
   feedShow: function() {
     var feedQuestions = new Explora.Collections.Questions();
     feedQuestions.url = '/api/questions/feed';
@@ -107,10 +112,11 @@ Explora.Routers.Router = Backbone.Router.extend({
     this._currentSidebar = view;
     this.$sidebar.html(view.$el);
     view.render();
+    view.delegateEvents();
   },
 
   swapView: function(view, sidebarView) {
-    sidebarView = sidebarView || this._defaultSidebar;
+    sidebarView = sidebarView || this.defaultSidebar();
     this.swapSidebar(sidebarView);
 
     if (this._currentView) {
