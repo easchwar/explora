@@ -60,8 +60,8 @@ tags = (t_id_first..t_id_last).to_a
 end
 
 # Questions
-u.questions.create!(body: 'user1 question1', tag_ids: [f.id, s.id, a.id])
-u.questions.create!(body: 'user1 question2', tag_ids: [f.id, s.id, t.id])
+u.questions.create!(body: "Who is the world's greatest adventurer?", tag_ids: [f.id, s.id, a.id])
+u.questions.create!(body: "Where is everyone?", tag_ids: [f.id, s.id, t.id])
 
 q1 = e.questions.create!(body: "Why can't everybody know what's good?",
                          tag_ids: [a.id])
