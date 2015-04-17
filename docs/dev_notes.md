@@ -1,6 +1,6 @@
 ## Known Issues:
-- Adding an answer to a previously unanswered question requires two redirects to
-  show it as topAnswer() for the index.
+- ~~Adding an answer to a previously unanswered question requires two redirects to
+  show it as topAnswer() for the index.~~
 - sidebar changes size when navigating to and from the question show view.
   - has to do with the presence of the scrollbar. The fact that the sidebar is
     fixed makes it seem to grow
@@ -13,7 +13,8 @@
       that is empty and only used for caching purposes. You then getOrFetch from there.
 - clicking the edge of a tag doesn't fire the link because the <li> is slightly bigger
   than the anchor tag.
-  
+- user_sidebar doesn't have a working tag search
+
 ## Todo:
 - ~~Add route for tagged item feed (already have controller action)~~
 - ~~modal for question form~~
@@ -21,6 +22,12 @@
 - ~~sign up page~~
 - ~~conditional delete buttons for questions and answers index items~~
   - add for show view too
+- ~~upgrade answerShow~~
+  - ~~display author~~
+  - ~~delete button for answers you have written~~
+- ~~make useful navbar~~
+  - ~~this depends on whether I want to make a user profile page.~~
+  - ~~implement search~~
 - Tags
   - in tag header view, determine whether the current user is subscribed to the
     displayed tag (to determine sub/unsub action by clicking glyphicon)
@@ -28,15 +35,9 @@
     - ~~don't use the select form item~~
   - ~~fix typeahead on question form~~
   - ~~allow deletion of tags in question form~~
-  - upon subscription to tag, add it alphabetically to the sidebar (require a
-    change to addSubview())
-- make useful navbar
-  - this depends on whether I want to make a user profile page.
-  - ~~implement search~~
+  - ~~upon subscription to tag, add it alphabetically to the sidebar (require a
+    change to addSubview())~~
 - Better seed data
-- upgrade answerShow
-  - display author
-  - ~~delete button for answers you have written~~
 - rich text editor
 
 ## Interesting Problems:
