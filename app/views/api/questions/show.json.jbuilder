@@ -1,5 +1,8 @@
 json.extract! @question, :id, :body, :author_id, :created_at, :updated_at
 
+author_name = User.find(@question.author_id).username
+json.author_name author_name
+
 json.answers do
   json.array!(@question.answers.order(created_at: :asc)) do |answer|
     json.partial! 'api/answers/show', answer: answer

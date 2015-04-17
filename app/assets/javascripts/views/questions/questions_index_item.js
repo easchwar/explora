@@ -28,11 +28,13 @@ Explora.Views.QuestionsIndexItem = Backbone.CompositeView.extend({
   },
 
   addAnswerIndexItem: function() {
+    // this.$('question-index-item-answer').removeClass('hidden');
     var view = new Explora.Views.AnswersIndexItem({
       model: this.model.topAnswer(),
       tagName: 'p',
       className: 'question-item-top-answer',
     });
+    this.$('needs-answers').addClass('hidden');
     this.addSubview('.question-index-item-answer', view);
   },
 

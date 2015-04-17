@@ -47,6 +47,7 @@ Explora.Views.QuestionShow = Backbone.CompositeView.extend({
   render: function() {
     var content = this.template({question: this.model});
     this.$el.html(content);
+    this.$('.timeago').timeago();
     this.attachSubviews();
     return this;
   },

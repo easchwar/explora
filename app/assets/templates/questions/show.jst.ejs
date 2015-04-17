@@ -1,6 +1,12 @@
-<div class="col-md-8">
-  <h2 class="header-line"><%= question.escape('body') %></h2>
+<% var date = new Date(question.get('created_at')) %>
 
+<div class="col-md-8">
+  <h2 class=""><%= question.escape('body') %></h2>
+  <p class="subheader-line">
+    <a href="#"><%= question.escape('author_name') %></a>
+    <span class="faded timeago" title="<%= question.get('created_at') %>"><%= date %></span>
+
+  </p>
   <div class="tagged tags-index"></div>
 
   <div class="answer-form"></div>
