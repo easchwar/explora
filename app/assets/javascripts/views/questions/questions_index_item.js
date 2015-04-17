@@ -28,7 +28,6 @@ Explora.Views.QuestionsIndexItem = Backbone.CompositeView.extend({
   },
 
   addAnswerIndexItem: function() {
-    // this.$('question-index-item-answer').removeClass('hidden');
     var view = new Explora.Views.AnswersIndexItem({
       model: this.model.topAnswer(),
       tagName: 'p',
