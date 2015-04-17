@@ -13,13 +13,8 @@ Explora.Views.TagSearchForm = Backbone.View.extend({
     }
   },
 
-  // delegateEvents: function() {
-  //   // setTimeout(this.addTypeahead.bind(this), 2000);
-  //   Backbone.View.prototype.delegateEvents.call(this);
-  // },
-
   addTypeahead: function() {
-    this.$('.abc').typeahead({
+    this.$('.typeahead').typeahead({
       minLength: 1,
       highlight: true,
     },

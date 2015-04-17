@@ -1,5 +1,5 @@
 class Api::SubscriptionsController < ApplicationController
-  wrap_parameters :abc, include: [:user_id, :subscribable_id, :subscribable_type]
+  wrap_parameters :subscription, include: [:user_id, :subscribable_id, :subscribable_type]
 
   def create
     @subscription = Subscription.new(subscription_params)
@@ -20,6 +20,6 @@ class Api::SubscriptionsController < ApplicationController
   private
 
   def subscription_params
-    params.require(:abc).permit(:user_id, :subscribable_id, :subscribable_type)
+    params.require(:subscription).permit(:user_id, :subscribable_id, :subscribable_type)
   end
 end

@@ -11,7 +11,7 @@ Explora.Views.UserSidebar = Backbone.CompositeView.extend({
     this.tags = options.tags;
     this.addTagsIndex();
     if (window.CURRENT_USER.id == this.model.id) {
-      this.addTagSearch();
+      // this.addTagSearch();
     }
     this.listenTo(this.model, 'sync', this.render);
   },
