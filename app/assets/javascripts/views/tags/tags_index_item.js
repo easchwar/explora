@@ -8,12 +8,16 @@ Explora.Views.TagsIndexItem = Backbone.View.extend({
     'click .item-delete': 'removeSubscription',
   },
 
-  initialize: function() {
+  initialize: function(options) {
+    this.deleteable = options.deleteable;
     this.listenTo(this.model, 'sync', this.render);
   },
 
   render: function() {
-    var content = this.template({tag: this.model});
+    var content = this.template({
+      tag: this.model,
+      deleteable: this.deleteable,
+    });
     this.$el.html(content);
     return this;
   },

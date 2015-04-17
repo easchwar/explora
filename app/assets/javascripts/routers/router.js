@@ -78,6 +78,7 @@ Explora.Routers.Router = Backbone.Router.extend({
   },
 
   userShow: function(id) {
+    var deleteable = (CURRENT_USER.id == id);
     var user = new Explora.Models.User({id: id});
     user.fetch();
     var userQuestions = new Explora.Collections.Questions();
@@ -97,6 +98,7 @@ Explora.Routers.Router = Backbone.Router.extend({
     var sidebarView = new Explora.Views.UserSidebar({
       model: user,
       tags: userTags,
+      deleteable: deleteable,
     });
     this.swapView(view, sidebarView);
   },

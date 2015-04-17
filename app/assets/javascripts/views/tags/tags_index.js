@@ -4,7 +4,8 @@ Explora.Views.TagsIndex = Backbone.CompositeView.extend({
   tagName: 'div',
   className: 'index-div',
 
-  initialize: function() {
+  initialize: function(options) {
+    this.deleteable = options.deleteable;
     this.addAllItems();
 
     this.listenTo(this.collection, 'sync', this.render);
@@ -22,6 +23,7 @@ Explora.Views.TagsIndex = Backbone.CompositeView.extend({
     var view = new Explora.Views.TagsIndexItem({
       model: model,
       collection: this.collection,
+      deleteable: this.deleteable,
       });
     this.addSubview('.tags-index', view);
   },

@@ -1,4 +1,6 @@
 <a href="#/tags/<%= tag.id %>/questions">
   <%= tag.escape('tag_name') %>
 </a>
-<button class="item-delete btn btn-xs">X</button>
+<% if (deleteable) { %>
+  <button class="item-delete btn btn-xs">X</button>
+<% } %>

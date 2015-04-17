@@ -13,7 +13,10 @@ Explora.Views.DefaultSidebar = Backbone.CompositeView.extend({
   },
 
   addTagsIndex: function() {
-    var view = new Explora.Views.TagsIndex({collection: this.tags});
+    var view = new Explora.Views.TagsIndex({
+      collection: this.tags,
+      deleteable: true,
+    });
     this.addSubview('.tags-index', view);
   },
 
