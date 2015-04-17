@@ -28,8 +28,8 @@ t_id_last = Tag.last.id
 # Users
 e = User.create!(username: 'eric', password: 'ericeric')
 g = User.create!(username: 'ExploraNinja', password: 'exploraninja')
-u = User.create!(username: 'user1', password: 'password')
-u2 = User.create!(username: 'user2', password: 'password')
+u = User.create!(username: 'Indiana Jones', password: 'password')
+u2 = User.create!(username: 'Robinson Crusoe', password: 'password')
 
 20.times do
   User.create!(username: Faker::Name.name, password: 'pw_faker')
@@ -44,10 +44,12 @@ Subscription.create!(user_id: e.id, subscribable_id: s.id, subscribable_type: 'T
 Subscription.create!(user_id: e.id, subscribable_id: a.id, subscribable_type: 'Tag')
 Subscription.create!(user_id: e.id, subscribable_id: u.id, subscribable_type: 'User')
 Subscription.create!(user_id: u.id, subscribable_id: e.id, subscribable_type: 'User')
-Subscription.create!(user_id: g.id, subscribable_id: e.id, subscribable_type: 'User')
-Subscription.create!(user_id: g.id, subscribable_id: u.id, subscribable_type: 'User')
+# Subscription.create!(user_id: g.id, subscribable_id: e.id, subscribable_type: 'User')
+# Subscription.create!(user_id: g.id, subscribable_id: u.id, subscribable_type: 'User')
 Subscription.create!(user_id: g.id, subscribable_id: f.id, subscribable_type: 'Tag')
 Subscription.create!(user_id: g.id, subscribable_id: s.id, subscribable_type: 'Tag')
+Subscription.create!(user_id: g.id, subscribable_id: t.id, subscribable_type: 'Tag')
+Subscription.create!(user_id: g.id, subscribable_id: rand(t_id_first..t_id_last), subscribable_type: 'Tag')
 
 # Questions
 u.questions.create!(body: 'user1 question1', tag_ids: [f.id, s.id, a.id])
