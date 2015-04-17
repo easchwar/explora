@@ -1,5 +1,6 @@
 Explora.Views.UserSidebar = Backbone.CompositeView.extend({
   template: JST['sidebars/user'],
+
   events: {
     'click .add-search': 'toggleHidden',
     'submit form': 'toggleHidden'
@@ -9,7 +10,7 @@ Explora.Views.UserSidebar = Backbone.CompositeView.extend({
     this.deleteable = options.deleteable;
     this.tags = options.tags;
     this.addTagsIndex();
-    if (window.CURRENT_USER.id === this.model.id) {
+    if (window.CURRENT_USER.id == this.model.id) {
       this.addTagSearch();
     }
     this.listenTo(this.model, 'sync', this.render);
@@ -24,7 +25,10 @@ Explora.Views.UserSidebar = Backbone.CompositeView.extend({
   },
 
   addTagSearch: function() {
-    var view = new Explora.Views.TagSearchForm({collection: this.tags});
+    var view = new Explora.Views.TagSearchForm({
+      collection: this.tags,
+      model: this.model,
+    });
     this.addSubview('.tag-search', view);
   },
 

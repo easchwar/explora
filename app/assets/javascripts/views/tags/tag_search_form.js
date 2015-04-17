@@ -7,8 +7,19 @@ Explora.Views.TagSearchForm = Backbone.View.extend({
     'submit': 'search',
   },
 
+  initialize: function() {
+    if (this.model) {
+      this.listenTo(this.model, 'sync', this.render);
+    }
+  },
+
+  // delegateEvents: function() {
+  //   // setTimeout(this.addTypeahead.bind(this), 2000);
+  //   Backbone.View.prototype.delegateEvents.call(this);
+  // },
+
   addTypeahead: function() {
-    this.$('.typeahead').typeahead({
+    this.$('.abc').typeahead({
       minLength: 1,
       highlight: true,
     },
@@ -20,6 +31,7 @@ Explora.Views.TagSearchForm = Backbone.View.extend({
   },
 
   typeaheadSource: function(query, process) {
+    console.log('typeahead');
     $.ajax({
       url: '/api/tags',
       dataType: 'json',
@@ -36,7 +48,7 @@ Explora.Views.TagSearchForm = Backbone.View.extend({
   render: function() {
     var content = this.template();
     this.$el.html(content);
-    this.addTypeahead();
+    setTimeout(this.addTypeahead.bind(this), 0);
     return this;
   },
 
