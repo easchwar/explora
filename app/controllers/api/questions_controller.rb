@@ -43,7 +43,7 @@ class Api::QuestionsController < ApplicationController
   end
 
   def destroy
-    @question = Question.find(params[:id])
+    @question = current_user.questions.find(params[:id])
     @question.try(:destroy)
     render json: {}
   end

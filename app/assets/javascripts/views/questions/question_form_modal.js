@@ -16,12 +16,7 @@ Explora.Views.QuestionFormModal = Backbone.CompositeView.extend({
     this.addTagsIndex();
   },
 
-  logIt: function() {
-    console.log('here');
-  },
-
   addTypeahead: function() {
-    console.log('added');
     this.$('.typeahead').typeahead({
       minLength: 1,
       highlight: true,
@@ -34,7 +29,6 @@ Explora.Views.QuestionFormModal = Backbone.CompositeView.extend({
   },
 
   typeaheadSource: function(query, process) {
-    console.log('typeahead');
     $.ajax({
       url: '/api/tags',
       dataType: 'json',

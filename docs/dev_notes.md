@@ -37,6 +37,7 @@
   - ~~allow deletion of tags in question form~~
   - ~~upon subscription to tag, add it alphabetically to the sidebar (require a
     change to addSubview())~~
+- apply search to users
 - Better seed data
 - rich text editor
 
