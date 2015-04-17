@@ -30,6 +30,7 @@ Explora.Views.QuestionsIndexItem = Backbone.CompositeView.extend({
   addAnswerIndexItem: function() {
     var view = new Explora.Views.AnswersIndexItem({
       model: this.model.topAnswer(),
+      question: this.model,
       tagName: 'p',
       className: 'question-item-top-answer',
     });

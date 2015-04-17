@@ -28,6 +28,7 @@ Explora.Views.AnswerForm = Backbone.View.extend({
       success: function(model) {
         this.$('textarea').val('');
         this.collection.add(model);
+        this.question.fetch();
         Backbone.history.navigate('/questions/' + this.question.id, {trigger: true});
       }.bind(this)
     });

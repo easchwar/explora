@@ -25,7 +25,10 @@ Explora.Views.QuestionShow = Backbone.CompositeView.extend({
   },
 
   addAnswersIndex: function() {
-    var view = new Explora.Views.AnswersIndex({collection: this.model.answers()});
+    var view = new Explora.Views.AnswersIndex({
+      question: this.model,
+      collection: this.model.answers(),
+    });
     this.addSubview('.answers-index', view);
   },
 

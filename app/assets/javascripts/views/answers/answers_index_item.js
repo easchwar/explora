@@ -8,8 +8,10 @@ Explora.Views.AnswersIndexItem = Backbone.View.extend({
     'click .item-delete': 'deleteItem'
   },
 
-  initialize: function() {
+  initialize: function(options) {
+    this.question = options.question;
     this.listenTo(this.model, 'sync', this.render);
+    this.listenTo(this.question, 'sync', this.render);
   },
 
   render: function() {
