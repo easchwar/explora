@@ -34,6 +34,7 @@ Explora.Views.QuestionShow = Backbone.CompositeView.extend({
       collection: this.model.relatedQuestions(),
       simple: true,
     });
+    view.template = JST['questions/related_index'];
     this.addSubview('.related-questions', view);
   },
 

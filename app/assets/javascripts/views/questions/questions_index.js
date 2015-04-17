@@ -14,6 +14,7 @@ Explora.Views.QuestionsIndex = Backbone.CompositeView.extend({
     var view = new Explora.Views.QuestionsIndexItem({model: model});
     if (this.options.simple) {
       view.template = JST['questions/index_item_simple'];
+      view.$el.removeClass('list-group-item');
     }
     this.addSubview('.questions-index', view, {prepend: true});
     view.$('.timeago').timeago();
