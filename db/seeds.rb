@@ -51,6 +51,14 @@ Subscription.create!(user_id: g.id, subscribable_id: s.id, subscribable_type: 'T
 Subscription.create!(user_id: g.id, subscribable_id: t.id, subscribable_type: 'Tag')
 Subscription.create!(user_id: g.id, subscribable_id: rand(t_id_first..t_id_last), subscribable_type: 'Tag')
 
+tags = (t_id_first..t_id_last).to_a
+(u_id_first + 2..u_id_last).each do |x|
+  sample_tags = tags.sample(3)
+  sample_tags.each do |sample_tag_id|
+    Subscription.create!(user_id: x, subscribable_id: sample_tag_id, subscribable_type: 'Tag')
+  end
+end
+
 # Questions
 u.questions.create!(body: 'user1 question1', tag_ids: [f.id, s.id, a.id])
 u.questions.create!(body: 'user1 question2', tag_ids: [f.id, s.id, t.id])
