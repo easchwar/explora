@@ -18,7 +18,7 @@ class Question < ActiveRecord::Base
 
   has_many :tags, through: :taggings, source: :tag
   has_many :related_questions,
-    -> (question) { where.not(id: question.id).uniq },
+    -> (question) { where.not(id: question.id).uniq.order(created_at: :desc) },
     {
       through: :tags,
       source: :tagged_questions

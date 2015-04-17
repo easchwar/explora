@@ -16,7 +16,7 @@ json.tags do
 end
 
 json.related_questions do
-  json.array!(@question.related_questions) do |related_question|
+  json.array!(@question.related_questions.limit(10).to_a.reverse!) do |related_question|
     json.partial! 'api/questions/show_simple', question: related_question
   end
 end
