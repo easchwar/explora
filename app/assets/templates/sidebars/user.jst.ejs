@@ -1,0 +1,15 @@
+<h3><%= user.escape('username') %></h3>
+<ul class="list-inline">
+  <li class="faded">Questions: <%= user.get('question_count') %></li>
+  <li class="faded">Answers: <%= user.get('answer_count') %></li>
+</ul>
+
+<h4 class="header-line"><%= user.escape('username') %>'s Tags</h4>
+<div class="tags-index">
+
+</div>
+<div class="hidden tag-search">
+</div>
+<% if (user.id === CURRENT_USER.id) { %>
+  <button class="add-search btn btn-xs"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
+<% } %>

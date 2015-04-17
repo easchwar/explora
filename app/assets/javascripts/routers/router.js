@@ -2,6 +2,7 @@ Explora.Routers.Router = Backbone.Router.extend({
 
   routes: {
     "": "feedShow",
+    "users/:id": "userShow",
     "questions/all": "allQuestionsIndex",
     "tags/:id/questions": "taggedQuestionsIndex",
     "questions/:id": "questionShow",
@@ -71,6 +72,30 @@ Explora.Routers.Router = Backbone.Router.extend({
     this.swapView(view);
   },
 
+  userShow: function(id) {
+    var user = new Explora.Models.User({id: id});
+    user.fetch();
+    var userQuestions = new Explora.Collections.Questions();
+    userQuestions.fetch({
+      data: {author_id: id}
+    });
+    var userTags = new Explora.Collections.Tags();
+    userTags.fetch({
+      data: {user_id: id}
+    });
+
+    var view = new Explora.Views.FeedShow({
+      questions: userQuestions,
+      tags: this._tags,
+    });
+
+    var sidebarView = new Explora.Views.UserSidebar({
+      model: user,
+      tags: userTags,
+    });
+    this.swapView(view, sidebarView);
+  },
+
   swapSidebar: function(view) {
     if (this._currentSidebar === view) {
       return;
@@ -80,10 +105,14 @@ Explora.Routers.Router = Backbone.Router.extend({
       this._currentSidebar.remove();
     }
     this._currentSidebar = view;
-    this.$sidebar.html(view.render().$el);
+    this.$sidebar.html(view.$el);
+    view.render();
   },
 
-  swapView: function(view) {
+  swapView: function(view, sidebarView) {
+    sidebarView = sidebarView || this._defaultSidebar;
+    this.swapSidebar(sidebarView);
+
     if (this._currentView) {
       this._currentView.remove();
     }

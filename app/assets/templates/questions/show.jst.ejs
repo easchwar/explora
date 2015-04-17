@@ -3,7 +3,7 @@
 <div class="col-md-8">
   <h2 class=""><%= question.escape('body') %></h2>
   <p class="subheader-line">
-    <a href="#"><%= question.escape('author_name') %></a>
+    <a href="#/users/<%= question.get('author_id') %>"><%= question.escape('author_name') %></a>
     <span class="faded timeago" title="<%= question.get('created_at') %>"><%= date %></span>
 
   </p>

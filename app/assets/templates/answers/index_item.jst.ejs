@@ -1,7 +1,7 @@
 <% var date = new Date(answer.get('created_at')) %>
 
 <div class="subheader-line">
-  <a href="#" ><%= answer.escape('author_name') %></a>
+  <a href="#/users/<%= answer.get('author_id') %>" ><%= answer.escape('author_name') %></a>
 </div>
 
 <p>
