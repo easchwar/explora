@@ -26,7 +26,6 @@ Explora.Views.TagSearchForm = Backbone.View.extend({
   },
 
   typeaheadSource: function(query, process) {
-    console.log('typeahead');
     $.ajax({
       url: '/api/tags',
       dataType: 'json',
