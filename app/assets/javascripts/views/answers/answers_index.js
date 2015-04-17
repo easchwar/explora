@@ -18,6 +18,7 @@ Explora.Views.AnswersIndex = Backbone.CompositeView.extend({
   addIndexItem: function(model) {
     var view = new Explora.Views.AnswersIndexItem({model: model});
     this.addSubview('.answers-index', view, {prepend: true});
+    view.$('.timeago').timeago();
   },
 
   removeIndexItem: function(model) {
@@ -32,6 +33,7 @@ Explora.Views.AnswersIndex = Backbone.CompositeView.extend({
     var content = this.template();
     this.$el.html(content);
     this.attachSubviews();
+    this.$('.timeago').timeago();
     return this;
   },
 });

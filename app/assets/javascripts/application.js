@@ -18,6 +18,7 @@
 //= require backbone
 //= require explora
 //= require typeahead.bundle.js
+//= require jquery.timeago.js
 //= require_tree ./utils
 //= require_tree ../templates
 //= require_tree ./models

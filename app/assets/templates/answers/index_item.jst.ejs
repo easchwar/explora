@@ -1,4 +1,14 @@
-<%= answer.escape('body') %>
+<% var date = new Date(answer.get('created_at')) %>
+
+<div class="subheader-line">
+  <a href="#" ><%= answer.escape('author_name') %></a>
+</div>
+
+<p>
+  <%= answer.escape('body') %>
+</p>
+
+<span class="faded timeago" title="<%= answer.get('created_at') %>"><%= date %></span>
 
 <% if (answer.get('author_id') === CURRENT_USER.id) {%>
   <button class="item-delete btn btn-default btn-xs">X</button>
