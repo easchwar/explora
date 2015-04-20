@@ -17,6 +17,7 @@ Explora.Views.Navbar = Backbone.View.extend({
 
   addTypeahead: function() {
     this.$('.typeahead').typeahead({
+      hint: false,
       minLength: 1,
       highlight: true,
     },
