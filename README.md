@@ -1,7 +1,7 @@
 # Explora
 Explora was built as part of my Capstone project for App Academy. It’s a clone of Quora built in Ruby on Rails and Backbone.js.
 
-[Live Demo!](explora.ninja)
+[Live Demo!](http://explora.ninja)
 ## Minimum Viable Product
 Explora is a clone of Quora built on Rails and Backbone. Users can:
 
